@@ -1,18 +1,290 @@
-<!doctype html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta property="og:image" content="/og-image.png" />
-		<meta name="description" content="MH Formation — Formation professionnelle continue à Albi. Certifié Qualiopi. Management, communication, relation client, organisation du travail." />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-		<title>MH Formation — Formation professionnelle continue à Albi</title>
-	</head>
-	<body>
-		<div id="root"></div>
-		<script type="module" src="/src/web/main.tsx"></script>
-	</body>
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MH Formation — Formation professionnelle continue à Albi. Organisme certifié Qualiopi : management, communication, relation client, organisation du travail et accompagnement collectif." />
+  <meta property="og:title" content="MH Formation — Formation professionnelle continue à Albi" />
+  <meta property="og:description" content="Formations courtes, concrètes et immédiatement applicables pour les secteurs industriel et tertiaire." />
+  <title>MH Formation — Formation professionnelle continue à Albi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            slate: {
+              50: '#F8FAFC', 100: '#F1F5F9', 200: '#E2E8F0', 300: '#CBD5E1',
+              400: '#94A3B8', 500: '#64748B', 600: '#475569', 700: '#334155',
+              800: '#1E293B', 900: '#0F172A', 950: '#020617'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #FCFCFC; }
+    h1, h2, h3, .font-serif { font-family: 'Cormorant Garamond', serif; }
+    .route-section { animation: silentFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes silentFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen bg-[#FCFCFC] selection:bg-slate-100">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-900/[0.03] transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+      <a href="#/" onclick="navigateTo('#/')" class="flex items-center">
+        <span class="text-sm font-serif tracking-[0.25em] text-slate-950 uppercase font-medium">MH FORMATION</span>
+      </a>
+      <nav class="hidden lg:flex items-center space-x-10 text-[10px] uppercase tracking-[0.22em] font-medium text-slate-500" aria-label="Navigation principale">
+        <a href="#/" onclick="navigateTo('#/')" class="nav-link hover:text-slate-950 transition-colors py-1 border-b border-transparent" data-route="#/">Accueil</a>
+        <a href="#/approche" onclick="navigateTo('#/approche')" class="nav-link hover:text-slate-950 transition-colors py-1 border-b border-transparent" data-route="#/approche">Approche</a>
+        <a href="#/formations" onclick="navigateTo('#/formations')" class="nav-link hover:text-slate-950 transition-colors py-1 border-b border-transparent" data-route="#/formations">Formations</a>
+        <a href="#/financement" onclick="navigateTo('#/financement')" class="nav-link hover:text-slate-950 transition-colors py-1 border-b border-transparent" data-route="#/financement">Financement</a>
+        <a href="#/qualite" onclick="navigateTo('#/qualite')" class="nav-link hover:text-slate-950 transition-colors py-1 border-b border-transparent" data-route="#/qualite">Qualité</a>
+        <a href="#/accessibilite" onclick="navigateTo('#/accessibilite')" class="nav-link hover:text-slate-950 transition-colors py-1 border-b border-transparent" data-route="#/accessibilite">Handicap</a>
+      </nav>
+      <div class="hidden lg:block">
+        <a href="#/contact" onclick="navigateTo('#/contact')" class="text-[10px] font-semibold tracking-[0.2em] uppercase border-b border-slate-950/20 hover:border-slate-950 pb-0.5 transition-colors">Parler de votre projet</a>
+      </div>
+      <button onclick="toggleMobileMenu()" id="menu-btn" class="lg:hidden p-1.5 text-slate-900 focus:outline-none" aria-label="Menu principal" aria-controls="mobile-menu">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 8h16M4 16h16" /></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-900/[0.02] transition-all duration-300">
+      <nav class="flex flex-col space-y-4 p-6 text-[10px] uppercase tracking-[0.2em] font-medium" aria-label="Navigation mobile">
+        <a href="#/" onclick="navigateTo('#/')" class="mobile-nav-link text-slate-500" data-route="#/">Accueil</a>
+        <a href="#/approche" onclick="navigateTo('#/approche')" class="mobile-nav-link text-slate-500" data-route="#/approche">Approche</a>
+        <a href="#/formations" onclick="navigateTo('#/formations')" class="mobile-nav-link text-slate-500" data-route="#/formations">Formations</a>
+        <a href="#/financement" onclick="navigateTo('#/financement')" class="mobile-nav-link text-slate-500" data-route="#/financement">Financement</a>
+        <a href="#/qualite" onclick="navigateTo('#/qualite')" class="mobile-nav-link text-slate-500" data-route="#/qualite">Qualité</a>
+        <a href="#/accessibilite" onclick="navigateTo('#/accessibilite')" class="mobile-nav-link text-slate-500" data-route="#/accessibilite">Handicap</a>
+        <a href="#/contact" onclick="navigateTo('#/contact')" class="mobile-nav-link text-slate-950 font-semibold pt-4 border-t border-slate-100" data-route="#/contact">Parler de votre projet</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section id="page-accueil" class="route-section hidden">
+      <div class="py-36 md:py-48 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-8 space-y-12 relative pl-8">
+              <div class="absolute left-0 top-3 bottom-3 w-[1px] bg-slate-900/[0.03]"></div>
+              <span class="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">Formation professionnelle continue — Secteurs industriel et tertiaire</span>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-extralight text-slate-950 tracking-tight leading-[1.15]">Compétences utiles.<br />Application immédiate.</h1>
+              <p class="text-sm md:text-base text-slate-600 font-light leading-relaxed max-w-xl">MH FORMATION est un organisme certifié Qualiopi au titre des actions de formation. Nous accompagnons les professionnels et les entreprises dans l'acquisition de savoir-faire techniques et opérationnels à Albi.</p>
+              <div class="pt-2"><a href="#/contact" onclick="navigateTo('#/contact')" class="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-slate-950 font-semibold border-b border-slate-900/10 hover:border-slate-950 pb-0.5 transition-all"><span>Parler de votre projet</span><span class="transition-transform group-hover:translate-x-0.5">&rarr;</span></a></div>
+            </div>
+            <div class="hidden lg:block lg:col-span-4"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-28 md:py-36 bg-slate-50/50 border-t border-b border-slate-900/[0.015]">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-4"><h2 class="text-2xl md:text-3xl font-serif font-light text-slate-950 tracking-tight">Former pour transformer</h2></div>
+            <div class="lg:col-span-7 lg:col-start-6 space-y-6 text-sm md:text-base text-slate-600 font-light leading-relaxed">
+              <p>La plupart des formations sont oubliées rapidement. Trop longues. Trop théoriques. Trop éloignées du réel.</p>
+              <p class="font-normal text-slate-950">Chez MH FORMATION, nous faisons l’inverse.</p>
+              <p>Concrètes. Ciblées. Immédiatement applicables. Chaque programme vise un résultat visible sur le terrain pour soutenir durablement l'activité des stagiaires.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-28 md:py-36 bg-white">
+        <div class="max-w-6xl mx-auto px-6 space-y-20">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-8 pl-8 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.03]"></div><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold">Bénéfices réels</span><h2 class="text-2xl md:text-3xl font-serif font-light text-slate-950 tracking-tight mt-3">Ce que vous gagnez</h2></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-sm text-slate-600 font-light leading-relaxed pl-8">
+            <div class="space-y-4"><span class="text-[10px] font-mono text-slate-300">01 /</span><h3 class="text-base font-serif text-slate-900 font-medium">Situations réelles</h3><p>Aucun cours magistral abstrait. Les apports théoriques s'appuient systématiquement sur le contexte concret d'exercice des apprenants.</p></div>
+            <div class="space-y-4"><span class="text-[10px] font-mono text-slate-300">02 /</span><h3 class="text-base font-serif text-slate-900 font-medium">Application immédiate</h3><p>Les stagiaires manipulent, testent et conçoivent durant la session de manière à pouvoir mettre en œuvre les compétences dès le lendemain.</p></div>
+            <div class="space-y-4"><span class="text-[10px] font-mono text-slate-300">03 /</span><h3 class="text-base font-serif text-slate-900 font-medium">Résultat visible</h3><p>L'évaluation à chaud et le suivi formalisé permettent de valider et de mesurer l'impact direct de la formation sur la productivité.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-28 md:py-36 bg-slate-50/50 border-t border-b border-slate-900/[0.015]">
+        <div class="max-w-6xl mx-auto px-6 space-y-20">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pl-8 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.03]"></div><div class="space-y-3"><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold">Programmes opérationnels</span><h2 class="text-2xl md:text-3xl font-serif font-light text-slate-950 tracking-tight">Domaines d’intervention</h2></div><a href="#/formations" onclick="navigateTo('#/formations')" class="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-slate-950 font-semibold border-b border-slate-900/10 hover:border-slate-950 pb-0.5 transition-colors self-start md:self-auto"><span>Consulter les parcours</span><span class="transition-transform group-hover:translate-x-0.5">&rarr;</span></a></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-16 pl-8">
+            <div class="space-y-2"><h3 class="text-base font-serif font-medium text-slate-900">Management de proximité</h3><p class="text-[13px] md:text-sm text-slate-600 font-light leading-relaxed">Stabiliser sa posture managériale, perfectionner sa communication et orchestrer sereinement le travail quotidien de son équipe.</p></div>
+            <div class="space-y-2"><h3 class="text-base font-serif font-medium text-slate-900">Communication professionnelle</h3><p class="text-[13px] md:text-sm text-slate-600 font-light leading-relaxed">Optimiser la qualité relationnelle, structurer les échanges d'informations internes et désamorcer les tensions en service.</p></div>
+            <div class="space-y-2"><h3 class="text-base font-serif font-medium text-slate-900">Relation client</h3><p class="text-[13px] md:text-sm text-slate-600 font-light leading-relaxed">Élever la qualité de l’accueil physique et virtuel, gérer efficacement les situations complexes et professionnaliser la relation usager.</p></div>
+            <div class="space-y-2"><h3 class="text-base font-serif font-medium text-slate-900">Organisation du travail</h3><p class="text-[13px] md:text-sm text-slate-600 font-light leading-relaxed">Planifier rationnellement ses tâches, optimiser l'utilisation de son temps et fluidifier la gestion des priorités individuelles.</p></div>
+            <div class="space-y-2"><h3 class="text-base font-serif font-medium text-slate-900">Accompagnement collectif</h3><p class="text-[13px] md:text-sm text-slate-600 font-light leading-relaxed">Fédérer les compétences, consolider la cohésion d'équipe et harmoniser les pratiques collaboratives transversales.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-28 md:py-36 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-5 space-y-6 pl-8 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.03]"></div><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">Certification nationale</span><h2 class="text-2xl md:text-3xl font-serif font-light text-slate-950 tracking-tight leading-tight">Qualité & accompagnement</h2><p class="text-sm text-slate-600 font-light leading-relaxed">MH FORMATION détient la certification Qualiopi. Ce label d’État valide la rigueur des processus d’accompagnement que nous déployons pour chacun de nos apprenants, de l'analyse amont à la validation opérationnelle post-formation.</p><a href="#/qualite" onclick="navigateTo('#/qualite')" class="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-slate-950 font-semibold border-b border-slate-900/10 hover:border-slate-950 pb-0.5 transition-colors"><span>Consulter nos engagements qualité</span><span class="transition-transform group-hover:translate-x-0.5">&rarr;</span></a></div>
+            <div class="lg:col-span-6 lg:col-start-7 bg-slate-50/60 p-10 border border-slate-900/[0.015] space-y-6"><span class="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-mono font-medium">Garanties réglementaires</span><div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-2"><div class="space-y-1"><span class="block text-xl font-serif text-slate-900 font-light">100%</span><span class="block text-[10px] uppercase tracking-[0.18em] text-slate-400 font-medium">Besoins analysés en amont</span></div><div class="space-y-1"><span class="block text-xl font-serif text-slate-900 font-light">Sur-mesure</span><span class="block text-[10px] uppercase tracking-[0.18em] text-slate-400 font-medium">Supports et rythmes adaptés</span></div></div><div class="border-t border-slate-200/40 pt-4 text-[11px] text-slate-400 font-light leading-relaxed">Certification délivrée par l'AFNOR au titre de la catégorie d’action suivante : Actions de Formation.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="py-24 bg-slate-50/50 border-t border-slate-900/[0.015]">
+        <div class="max-w-3xl mx-auto px-6 text-center space-y-6"><h3 class="text-xl md:text-2xl font-serif font-light text-slate-950 tracking-tight">Une question administrative ou de financement ?</h3><p class="text-sm text-slate-600 font-light max-w-xl mx-auto leading-relaxed">Notre équipe analyse la faisabilité de votre projet professionnel auprès des organismes de financement : OPCO, CPF et branches professionnelles.</p><a href="#/contact" onclick="navigateTo('#/contact')" class="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-slate-950 font-semibold border-b border-slate-900/10 hover:border-slate-950 pb-0.5 transition-colors"><span>Faire une demande d’étude</span><span class="transition-transform group-hover:translate-x-0.5">&rarr;</span></a></div>
+      </div>
+    </section>
+
+    <section id="page-approche" class="route-section hidden">
+      <div class="py-28 bg-slate-50 border-b border-slate-900/[0.015]"><div class="max-w-3xl mx-auto px-6 text-center space-y-6"><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold">Notre méthode</span><h1 class="text-4xl md:text-5xl font-serif font-light text-slate-950 tracking-tight">Former pour transformer.</h1><p class="text-sm md:text-base text-slate-600 font-light leading-relaxed">La formation n’a de valeur que si elle transforme les pratiques. Nous privilégions les situations réelles, les cas concrets et l’application immédiate.</p></div></div>
+      <div class="py-28 max-w-4xl mx-auto px-6 space-y-24">
+        <div class="space-y-12"><h2 class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold text-center">Les piliers de notre accompagnement</h2><div class="space-y-12 divide-y divide-slate-100">
+          <article class="pt-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-start"><div class="md:col-span-4 pl-4 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.04]"></div><span class="text-[10px] font-mono text-slate-300 block">01 /</span><h3 class="text-base font-serif font-medium text-slate-950 mt-1">Des formations courtes</h3></div><p class="md:col-span-8 text-sm text-slate-600 font-light leading-relaxed">Des contenus ciblés et opérationnels conçus pour être appliqués immédiatement, limitant le temps de retrait du poste de travail.</p></article>
+          <article class="pt-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-start"><div class="md:col-span-4 pl-4 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.04]"></div><span class="text-[10px] font-mono text-slate-300 block">02 /</span><h3 class="text-base font-serif font-medium text-slate-950 mt-1">Une pédagogie active</h3></div><p class="md:col-span-8 text-sm text-slate-600 font-light leading-relaxed">Échanges guidés, simulations réalistes, participation active et résolution collective de problématiques métiers.</p></article>
+          <article class="pt-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-start"><div class="md:col-span-4 pl-4 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.04]"></div><span class="text-[10px] font-mono text-slate-300 block">03 /</span><h3 class="text-base font-serif font-medium text-slate-950 mt-1">Un accompagnement humain</h3></div><p class="md:col-span-8 text-sm text-slate-600 font-light leading-relaxed">Présentiel, distanciel ou hybride selon les besoins identifiés et les spécificités d'exercice de l'activité professionnelle.</p></article>
+        </div></div>
+        <div class="bg-slate-50 p-8 border border-slate-900/[0.015] space-y-6"><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-mono font-medium">Exigences Qualiopi RNQ</span><p class="text-xs text-slate-500 font-medium">Chaque action de formation fait obligatoirement l’objet :</p><ul class="text-xs md:text-sm text-slate-600 font-light space-y-3.5 pl-4 border-l border-slate-200"><li>— d’une analyse précise des besoins</li><li>— d’un suivi pédagogique rigoureux</li><li>— d’une évaluation formelle des acquis</li><li>— d’une mesure exhaustive de la satisfaction</li></ul></div>
+        <div class="space-y-4"><h3 class="text-lg font-serif text-slate-950 tracking-tight">Adaptabilité aux stagiaires</h3><p class="text-sm text-slate-600 font-light leading-relaxed">Les formations dispensées par MH FORMATION peuvent être adaptées aux personnes en situation de handicap. Un référent handicap est disponible pour étudier les besoins spécifiques et proposer des aménagements.</p></div>
+      </div>
+    </section>
+
+    <section id="page-formations" class="route-section hidden">
+      <div class="py-28 bg-slate-50 border-b border-slate-900/[0.015]"><div class="max-w-3xl mx-auto px-6 text-center space-y-6"><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold">Catalogue professionnel</span><h1 class="text-4xl md:text-5xl font-serif font-light text-slate-950 tracking-tight">Des formations conçues pour le terrain.</h1><p class="text-sm md:text-base text-slate-600 font-light leading-relaxed">Des contenus opérationnels adaptés aux réalités professionnelles des secteurs industriel et tertiaire.</p></div></div>
+      <div class="py-28 max-w-4xl mx-auto px-6 space-y-16"><div id="courses-list" class="space-y-8"></div><div class="p-6 bg-slate-50 border border-slate-900/[0.015] text-xs text-slate-500 font-light leading-relaxed"><strong>Informations de conformité :</strong> Les programmes détaillés, les prérequis, les objectifs pédagogiques, les modalités d'évaluation et les délais moyens d’accès sont communiqués avant toute inscription définitive.</div></div>
+      <div id="course-modal" class="fixed inset-0 z-50 overflow-y-auto hidden bg-slate-900/20 backdrop-blur-sm flex items-center justify-center p-4"><div class="bg-white border border-slate-200 max-w-2xl w-full p-8 md:p-10 relative"><button onclick="closeCourseDetails()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-900 transition-colors" aria-label="Fermer"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12" /></svg></button><div id="modal-content" class="space-y-6"></div></div></div>
+    </section>
+
+    <section id="page-financement" class="route-section hidden">
+      <div class="py-28 bg-slate-50 border-b border-slate-900/[0.015]"><div class="max-w-3xl mx-auto px-6 text-center space-y-6"><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold">Prise en charge</span><h1 class="text-4xl md:text-5xl font-serif font-light text-slate-950 tracking-tight">Solutions de financement.</h1><p class="text-sm md:text-base text-slate-600 font-light leading-relaxed">Nous accompagnons les entreprises et les professionnels dans leurs démarches de prise en charge et de financement de leurs projets de formation continue.</p></div></div>
+      <div class="py-28 max-w-4xl mx-auto px-6 space-y-24"><div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-sm text-slate-600 font-light leading-relaxed"><div class="space-y-3 pl-4 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.04]"></div><h3 class="text-base font-serif text-slate-950 font-medium">OPCO</h3><p>Prise en charge possible selon les critères d’évaluation et d'attribution de votre branche professionnelle.</p></div><div class="space-y-3 pl-4 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.04]"></div><h3 class="text-base font-serif text-slate-950 font-medium">CPF</h3><p>Mobilisation du Compte Personnel de Formation selon les dispositifs en vigueur et les modules certifiants.</p></div><div class="space-y-3 pl-4 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.04]"></div><h3 class="text-base font-serif text-slate-950 font-medium">Plan de développement</h3><p>Accompagnement des services RH dans l’organisation, la programmation et le financement de la formation.</p></div></div><div class="pt-12 border-t border-slate-200/50 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"><div class="lg:col-span-4 pl-4 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.04]"></div><h3 class="text-base font-serif text-slate-950 font-medium">Accompagnement administratif</h3></div><div class="lg:col-span-8 space-y-5 text-sm text-slate-600 font-light leading-relaxed"><p>Nous vous fournissons l'intégralité des pièces réglementaires :</p><ul class="space-y-2 pl-4 border-l border-slate-200 text-slate-600/90 text-xs md:text-sm"><li>— devis formels personnalisés</li><li>— conventions de formation professionnelles</li><li>— programmes pédagogiques officiels détaillés</li><li>— convocations nominatives des stagiaires</li><li>— attestations de fin de formation</li></ul><p class="text-[11px] text-slate-400">Les délais d’accès et modalités administratives sont communiqués avant toute contractualisation.</p></div></div></div>
+    </section>
+
+    <section id="page-qualite" class="route-section hidden">
+      <div class="py-28 bg-slate-50 border-b border-slate-900/[0.015]"><div class="max-w-3xl mx-auto px-6 text-center space-y-6"><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold">Exigence réglementaire</span><h1 class="text-4xl md:text-5xl font-serif font-light text-slate-950 tracking-tight">Engagement qualité.</h1><p class="text-sm md:text-base text-slate-600 font-light leading-relaxed">MH FORMATION est certifié Qualiopi au titre des actions de formation. Cette certification atteste de la qualité des processus mis en œuvre.</p></div></div>
+      <div class="py-28 max-w-4xl mx-auto px-6 space-y-20"><div class="grid grid-cols-1 md:grid-cols-12 gap-8"><div class="md:col-span-4 pl-4 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.04]"></div><h3 class="text-base font-serif text-slate-950 font-medium">Nos engagements</h3></div><div class="md:col-span-8 text-sm text-slate-600 font-light leading-relaxed space-y-3"><p>Le respect du Référentiel National Qualité se décline à travers les indicateurs majeurs suivants :</p><ul class="space-y-3.5 pl-4 border-l border-slate-200"><li>— Analyse systématique des besoins opérationnels en amont</li><li>— Adaptation continue des parcours, durées et contenus</li><li>— Rigueur pédagogique, expertise technique et accompagnement continu</li><li>— Suivi de l'engagement et évaluation formalisée de fin d'action</li><li>— Processus structuré d'amélioration continue intégrant les feedbacks</li></ul></div></div><div class="pt-12 border-t border-slate-200/50 space-y-6"><span class="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-mono font-medium">Données de performance RNQ</span><div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-slate-800 font-light"><div class="p-5 bg-slate-50/60 border border-slate-900/[0.01] space-y-1"><span class="block text-[10px] uppercase text-slate-400 font-mono">01 /</span><span class="block text-[12px] font-medium text-slate-900">Taux de satisfaction</span><span class="block text-[10px] text-slate-400 italic font-light">Données en cours de consolidation.</span></div><div class="p-5 bg-slate-50/60 border border-slate-900/[0.01] space-y-1"><span class="block text-[10px] uppercase text-slate-400 font-mono">02 /</span><span class="block text-[12px] font-medium text-slate-900">Stagiaires formés</span><span class="block text-[10px] text-slate-400 italic font-light">Données en cours de consolidation.</span></div><div class="p-5 bg-slate-50/60 border border-slate-900/[0.01] space-y-1"><span class="block text-[10px] uppercase text-slate-400 font-mono">03 /</span><span class="block text-[12px] font-medium text-slate-900">Taux de recommandation</span><span class="block text-[10px] text-slate-400 italic font-light">Données en cours de consolidation.</span></div><div class="p-5 bg-slate-50/60 border border-slate-900/[0.01] space-y-1"><span class="block text-[10px] uppercase text-slate-400 font-mono">04 /</span><span class="block text-[12px] font-medium text-slate-900">Heures réalisées</span><span class="block text-[10px] text-slate-400 italic font-light">Données en cours de consolidation.</span></div></div></div><div class="pt-12 border-t border-slate-200/50 space-y-6"><span class="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-mono font-medium">Téléchargements obligatoires</span><div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-light" id="documents-list"></div></div><div class="pt-12 border-t border-slate-200/50 space-y-4"><h3 class="text-base font-serif text-slate-950 font-medium">Gestion des réclamations</h3><p class="text-sm text-slate-600 font-light leading-relaxed">Conformément aux exigences Qualiopi, nous disposons d'une procédure formalisée pour le traitement des réclamations.</p><p class="text-sm text-slate-600 font-light leading-relaxed">Pour soumettre une réclamation, adressez un courriel détaillé à <strong class="text-slate-900 font-normal">reclamation@mhformation-institut.org</strong>. Accusé de réception sous 48h ouvrées et réponse circonstanciée dans un délai de 15 jours.</p></div></div>
+    </section>
+
+    <section id="page-accessibilite" class="route-section hidden">
+      <div class="py-28 bg-slate-50 border-b border-slate-900/[0.015]"><div class="max-w-3xl mx-auto px-6 text-center space-y-6"><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold">Accueil & intégration</span><h1 class="text-4xl md:text-5xl font-serif font-light text-slate-950 tracking-tight">Accessibilité & handicap.</h1><p class="text-sm md:text-base text-slate-600 font-light leading-relaxed">Nous veillons à rendre nos formations accessibles au plus grand nombre. Les modalités pédagogiques, supports et organisations peuvent être adaptés selon les besoins identifiés.</p></div></div>
+      <div class="py-28 max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-start"><div class="md:col-span-7 space-y-6 text-sm text-slate-600 font-light leading-relaxed"><h2 class="text-base font-serif text-slate-900 font-medium">Aménagement des locaux & supports</h2><p>Notre démarche active de prise en compte du handicap se traduit par des dispositions concrètes :</p><ul class="space-y-3.5 pl-4 border-l border-slate-200 text-slate-600/90"><li>— analyse personnalisée des besoins spécifiques en amont</li><li>— adaptation textuelle ou matérielle des supports pédagogiques</li><li>— adaptation raisonnable des modalités pédagogiques : horaires, évaluations</li><li>— orientation vers des partenaires spécialisés s'il y a lieu</li></ul></div><aside class="md:col-span-5 bg-slate-50/70 p-8 border border-slate-900/[0.015] space-y-5"><h3 class="text-xs uppercase tracking-[0.25em] text-slate-400 font-mono font-medium">Référent handicap</h3><p class="text-xs text-slate-500 font-light leading-relaxed">Notre interlocuteur dédié est à votre disposition pour évaluer, concevoir et organiser l'aménagement de votre session.</p><div class="pt-4 border-t border-slate-200/40 space-y-2 text-xs text-slate-800 font-medium font-mono"><span class="block">MH FORMATION — Service handicap d'Albi</span><span class="block">contact@mhformation-institut.org</span></div></aside></div>
+    </section>
+
+    <section id="page-contact" class="route-section hidden">
+      <div class="py-28 bg-slate-50 border-b border-slate-900/[0.015]"><div class="max-w-3xl mx-auto px-6 text-center space-y-6"><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">Interlocuteur conseil</span><h1 class="text-4xl md:text-5xl font-serif font-light text-slate-950 tracking-tight">Parlons de votre projet.</h1><p class="text-sm md:text-base text-slate-600 font-light leading-relaxed">Pour toute demande administrative, de programme sur-mesure ou de tarification de nos sessions de formation professionnelle continue à Albi.</p></div></div>
+      <div class="py-28 max-w-5xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start"><div class="lg:col-span-5 space-y-6 text-sm text-slate-600 font-light leading-relaxed pl-4 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.04]"></div><h2 class="text-base font-serif text-slate-950 font-medium">MH FORMATION</h2><span class="block text-[10px] uppercase tracking-[0.2em] text-slate-400 font-medium">Organisme de formation continue</span><div class="space-y-4 pt-6 border-t border-slate-900/[0.03]"><p class="text-[13px]"><span class="block font-mono text-[10px] uppercase tracking-wider text-slate-400">Adresse postale :</span>Place Edmond Canet, 81000 Albi</p><p class="text-[13px]"><span class="block font-mono text-[10px] uppercase tracking-wider text-slate-400">Courriel direct :</span>contact@mhformation-institut.org</p><p class="text-[13px]"><span class="block font-mono text-[10px] uppercase tracking-wider text-slate-400">Adresse internet :</span>mhformation-institut.org</p></div></div><div class="lg:col-span-7"><form onsubmit="handleSoberFormSubmit(event)" class="space-y-10"><div class="grid grid-cols-1 sm:grid-cols-2 gap-8"><div class="space-y-1"><label for="contact-name" class="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">Nom complet</label><input type="text" id="contact-name" required class="w-full bg-transparent border-b border-slate-200 focus:border-slate-950 py-3 text-sm font-light text-slate-900 outline-none transition-colors rounded-none" /></div><div class="space-y-1"><label for="contact-email" class="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">E-mail</label><input type="email" id="contact-email" required class="w-full bg-transparent border-b border-slate-200 focus:border-slate-950 py-3 text-sm font-light text-slate-900 outline-none transition-colors rounded-none" /></div></div><div class="space-y-1"><label for="contact-phone" class="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">Téléphone de contact</label><input type="tel" id="contact-phone" required class="w-full bg-transparent border-b border-slate-200 focus:border-slate-950 py-3 text-sm font-light text-slate-900 outline-none transition-colors rounded-none" /></div><div class="space-y-1"><label for="contact-message" class="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">Description de votre besoin</label><textarea id="contact-message" rows="4" required placeholder="Thématique, contexte de l'entreprise ou objectifs visés..." class="w-full bg-transparent border-b border-slate-200 focus:border-slate-950 py-3 text-sm font-light text-slate-900 outline-none transition-colors resize-none placeholder:text-slate-300 rounded-none"></textarea></div><button type="submit" class="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-slate-950 font-semibold border border-slate-900/30 hover:border-slate-950 hover:bg-slate-950 hover:text-white px-8 py-3.5 transition-all duration-300"><span>Envoyer</span></button></form></div></div>
+      <div class="py-24 border-t border-slate-900/[0.02] bg-slate-50/30"><div class="max-w-5xl mx-auto px-6"><div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"><div class="lg:col-span-5 space-y-6 pl-4 relative"><div class="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-900/[0.04]"></div><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">Analyse de parcours instantanée</span><h2 class="text-2xl font-serif font-light text-slate-950 tracking-tight leading-tight">Diagnostic de compétences assisté</h2><p class="text-sm text-slate-600 font-light leading-relaxed">Saisissez vos objectifs opérationnels ou difficultés en entreprise. Un diagnostic de positionnement vous aide à formuler votre besoin avant échange avec notre responsable pédagogique.</p><p class="text-[11px] text-slate-400 leading-relaxed font-light">Ce livrable de positionnement est indicatif et sera validé définitivement par notre responsable pédagogique.</p></div><div class="lg:col-span-7 bg-white border border-slate-900/[0.03] p-8 md:p-10 space-y-8"><div class="space-y-2"><label for="ai-user-prompt" class="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">Décrivez votre situation ou vos objectifs</label><textarea id="ai-user-prompt" rows="3" placeholder="Ex : Je suis chef de chantier et je dois animer des points sécurité de 10 min..." class="w-full bg-transparent border-b border-slate-200 focus:border-slate-950 py-3 text-sm font-light text-slate-900 outline-none transition-colors resize-none placeholder:text-slate-300 rounded-none"></textarea></div><div class="flex items-center justify-between gap-4"><span class="text-[11px] text-slate-400 font-light">Pré-diagnostic indicatif</span><button onclick="triggerOrientationDiagnostic()" class="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-slate-950 font-semibold border-b border-slate-950/20 hover:border-slate-950 pb-0.5 transition-colors"><span>Générer le diagnostic</span></button></div><div id="ai-diagnostic-wrapper" class="hidden border-t border-slate-100 pt-8 space-y-4"><div id="ai-diagnostic-result" class="space-y-6"><div class="flex items-center justify-between border-b border-slate-900/[0.02] pb-3"><span class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-mono">Positionnement de formation</span><button onclick="copyDiagnosticToClipboard()" class="text-[10px] uppercase tracking-[0.2em] text-slate-600 hover:text-slate-950 border-b border-transparent hover:border-slate-950/20 pb-0.5 transition-all">Copier le diagnostic</button></div><div id="ai-diagnostic-content" class="text-sm text-slate-600 font-light leading-relaxed space-y-4"></div><div class="p-4 bg-slate-50 text-[11px] text-slate-400 font-light leading-relaxed"><strong>Note Qualiopi :</strong> Ce document constitue une évaluation initiale de positionnement, indicative et non contractuelle.</div></div></div></div></div></div></div>
+      <div id="contact-success-modal" class="fixed inset-0 z-50 overflow-y-auto hidden bg-slate-900/20 backdrop-blur-sm flex items-center justify-center p-4"><div class="bg-white border border-slate-200 max-w-md w-full p-10 text-center space-y-6"><div class="space-y-3"><h3 class="text-2xl font-serif text-slate-950 font-light">Message reçu</h3><p class="text-sm text-slate-600 font-light">Nous reviendrons vers vous rapidement.</p></div><button onclick="closeSuccessModal()" class="text-[10px] uppercase tracking-[0.2em] font-semibold border border-slate-900 hover:bg-slate-950 hover:text-white px-8 py-3 transition-all duration-300">Fermer</button></div></div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-900/[0.03] text-slate-500 py-20">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-slate-900/[0.02] text-xs font-light">
+      <div class="md:col-span-6 space-y-4"><h3 class="text-sm font-serif tracking-[0.22em] text-slate-950 uppercase font-medium">MH FORMATION</h3><p class="max-w-md text-slate-500 leading-relaxed text-[13px]">Organisme de formation continue professionnelle. Des parcours de montée en compétences ciblés et opérationnels, conçus pour une application technique ou managériale directe sur le terrain.</p><span class="inline-block border border-slate-200 px-3 py-1.5 text-[9px] uppercase tracking-[0.18em] font-semibold text-slate-600">Certifié QUALIOPI par AFNOR</span></div>
+      <nav class="md:col-span-3 space-y-4" aria-label="Mentions et documents"><h4 class="text-slate-900 font-medium uppercase tracking-[0.22em] text-[10px]">Mentions & documents</h4><ul class="space-y-2 text-slate-400"><li><a href="#/qualite" onclick="navigateTo('#/qualite')" class="hover:text-slate-950 transition-colors">Mentions légales</a></li><li><a href="#/qualite" onclick="navigateTo('#/qualite')" class="hover:text-slate-950 transition-colors">Politique de confidentialité</a></li><li><a href="#/qualite" onclick="navigateTo('#/qualite')" class="hover:text-slate-950 transition-colors">CGV</a></li><li><a href="#/qualite" onclick="navigateTo('#/qualite')" class="hover:text-slate-950 transition-colors">Qualité & Qualiopi</a></li><li><a href="#/accessibilite" onclick="navigateTo('#/accessibilite')" class="hover:text-slate-950 transition-colors">Accessibilité & handicap</a></li><li><a href="#/qualite" onclick="navigateTo('#/qualite')" class="hover:text-slate-950 transition-colors">Réclamation</a></li></ul></nav>
+      <div class="md:col-span-3 space-y-4"><h4 class="text-slate-900 font-medium uppercase tracking-[0.22em] text-[10px]">Contact d'Albi</h4><p class="leading-relaxed text-slate-400 text-[13px]">MH FORMATION<br />Place Edmond Canet, Albi<br />contact@mhformation-institut.org</p></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center text-[9px] text-slate-400 font-light space-y-3 md:space-y-0 tracking-wider"><span>© 2026 MH Formation. Tous droits réservés.</span><span>Réalisation conforme aux exigences du Référentiel National Qualité (RNQ)</span></div>
+  </footer>
+
+  <script>
+    const coursesData = {
+      management: { title: "Management de proximité", cat: "Parcours d'encadrement", duration: "21 heures — 3 jours", price: "1 500 € HT", public: "Chefs d'équipe, superviseurs, responsables opérationnels de service.", objectives: "Développer une communication claire, asseoir sa posture et maîtriser des méthodes directement applicables.", program: ["Positionnement managérial : droits, devoirs et postures", "Écoute active et feedback opérationnel", "Organisation du travail collectif et délégation", "Prévention et régulation des micro-conflits"] },
+      communication: { title: "Communication professionnelle", cat: "Relations interpersonnelles", duration: "14 heures — 2 jours", price: "990 € HT", public: "Tout collaborateur en situation de travail en équipe.", objectives: "Renforcer les échanges professionnels, la posture relationnelle et la qualité de la communication interne.", program: ["Mécanismes fondamentaux de la communication", "Affirmation de soi et posture relationnelle", "Adaptation aux interlocuteurs internes", "Argumentation constructive et pacifiée"] },
+      client: { title: "Relation client", cat: "Service & qualité relationnelle", duration: "14 heures — 2 jours", price: "990 € HT", public: "Chargés d'accueil, techniciens de maintenance, conseillers clientèle.", objectives: "Améliorer la qualité de l'accueil et la gestion des situations complexes.", program: ["Accueil physique et téléphonique", "Structuration d'une réponse client adaptée", "Gestion de l'insatisfaction", "Amélioration continue de l'expérience utilisateur"] },
+      organisation: { title: "Organisation du travail", cat: "Efficacité opérationnelle", duration: "14 heures — 2 jours", price: "990 € HT", public: "Salariés et indépendants souhaitant optimiser leur organisation personnelle.", objectives: "Développer des méthodes de planification concrètes pour améliorer l'efficacité opérationnelle.", program: ["Diagnostic personnel d'organisation", "Méthodes et outils de priorisation", "Planification des charges et aléas", "Optimisation des temps d'échange collectifs"] },
+      collectif: { title: "Accompagnement collectif", cat: "Pratiques collaboratives", duration: "21 heures — 3 jours", price: "1 500 € HT", public: "Services complets, pôles projets ou départements opérationnels.", objectives: "Favoriser la cohésion, développer les dynamiques collectives et sécuriser les pratiques collaboratives.", program: ["Cycles de vie d'un collectif", "Ateliers collaboratifs sur cas réels", "Vision d'équipe et repères partagés", "Co-conception de processus internes"] }
+    };
+
+    const courseOrder = ['management', 'communication', 'client', 'organisation', 'collectif'];
+    const documents = ['Certificat Qualiopi (PDF)', 'Règlement intérieur (PDF)', 'Conditions Générales de Vente (CGV)', "Livret d'accueil", 'Procédure handicap', 'Procédure de réclamation'];
+
+    function initialiseLists() {
+      const coursesList = document.getElementById('courses-list');
+      if (coursesList && !coursesList.children.length) {
+        coursesList.innerHTML = courseOrder.map(key => {
+          const course = coursesData[key];
+          return `<article class="py-8 border-b border-slate-900/[0.03] flex flex-col md:flex-row md:items-start justify-between gap-6 pl-4 relative"><div class="absolute left-0 top-6 bottom-6 w-[1px] bg-slate-900/[0.04]"></div><div class="max-w-xl space-y-3"><h3 class="text-lg font-serif font-medium text-slate-950">${course.title}</h3><p class="text-sm text-slate-600 font-light leading-relaxed">${course.objectives}</p></div><button onclick="openSoberCourseDetails('${key}')" class="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-slate-950 font-semibold border-b border-slate-900/10 hover:border-slate-950 pb-0.5 transition-colors self-start md:self-auto whitespace-nowrap">Consulter &rarr;</button></article>`;
+        }).join('');
+      }
+      const documentsList = document.getElementById('documents-list');
+      if (documentsList && !documentsList.children.length) {
+        documentsList.innerHTML = documents.map(label => `<a href="#" class="p-3 border border-slate-100 hover:border-slate-300 transition-colors flex justify-between items-center group"><span class="text-slate-600 font-mono">${label}</span><span class="text-[10px] uppercase tracking-wider text-slate-400 group-hover:text-slate-900">Télécharger &rarr;</span></a>`).join('');
+      }
+    }
+
+    function navigateTo(route) {
+      initialiseLists();
+      document.getElementById('mobile-menu').classList.add('hidden');
+      if (!route || route === '#') route = '#/';
+      const targetSectionId = {
+        '#/': 'page-accueil', '#/approche': 'page-approche', '#/formations': 'page-formations',
+        '#/financement': 'page-financement', '#/qualite': 'page-qualite', '#/accessibilite': 'page-accessibilite', '#/contact': 'page-contact'
+      }[route] || 'page-accueil';
+      document.querySelectorAll('.route-section').forEach(sec => sec.classList.add('hidden'));
+      document.getElementById(targetSectionId)?.classList.remove('hidden');
+      document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+        const active = link.getAttribute('data-route') === route;
+        link.classList.toggle('text-slate-950', active);
+        link.classList.toggle('font-semibold', active);
+        link.classList.toggle('border-slate-950', active && link.classList.contains('nav-link'));
+        link.classList.toggle('text-slate-500', !active);
+        link.classList.toggle('border-transparent', !active && link.classList.contains('nav-link'));
+      });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+
+    function openSoberCourseDetails(courseKey) {
+      const course = coursesData[courseKey];
+      if (!course) return;
+      const stepsHtml = course.program.map((step, idx) => `<li class="flex items-start space-x-3 text-sm text-slate-600 font-light leading-relaxed"><span class="text-slate-400 font-mono text-xs mt-0.5">${idx + 1}/</span><span>${step}</span></li>`).join('');
+      document.getElementById('modal-content').innerHTML = `<div class="space-y-1"><span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold">${course.cat}</span><h3 class="text-2xl font-serif font-light text-slate-950 tracking-tight">${course.title}</h3></div><div class="grid grid-cols-2 gap-4 border-y border-slate-100 py-4 my-2 text-[11px] text-slate-500"><div><span class="block uppercase font-semibold text-slate-400">Durée</span><span class="text-slate-900 font-medium">${course.duration}</span></div><div><span class="block uppercase font-semibold text-slate-400">Tarif de référence</span><span class="text-slate-900 font-medium">${course.price}</span></div></div><div class="space-y-4"><div><h4 class="text-[10px] uppercase tracking-[0.22em] font-semibold text-slate-800">Public cible & prérequis</h4><p class="text-[13px] text-slate-600 font-light leading-relaxed">${course.public}</p></div><div><h4 class="text-[10px] uppercase tracking-[0.22em] font-semibold text-slate-800">Objectif principal</h4><p class="text-[13px] text-slate-600 font-light leading-relaxed">${course.objectives}</p></div><div><h4 class="text-[10px] uppercase tracking-[0.22em] font-semibold text-slate-800">Structure du programme</h4><ul class="space-y-2 mt-2">${stepsHtml}</ul></div></div><div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-end"><button onclick="closeCourseDetails()" class="px-6 py-2.5 border border-slate-200 hover:border-slate-900 text-[10px] uppercase tracking-[0.18em] font-semibold transition-colors">Fermer la fiche</button><a href="#/contact" onclick="closeCourseDetails(); navigateTo('#/contact');" class="px-6 py-2.5 bg-slate-950 text-white hover:bg-slate-800 text-[10px] text-center uppercase tracking-[0.18em] font-semibold transition-colors">Faire une demande d'inscription</a></div>`;
+      document.getElementById('course-modal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeCourseDetails() { document.getElementById('course-modal').classList.add('hidden'); document.body.classList.remove('overflow-hidden'); }
+    function handleSoberFormSubmit(e) { e.preventDefault(); document.getElementById('contact-success-modal').classList.remove('hidden'); e.target.reset(); }
+    function closeSuccessModal() { document.getElementById('contact-success-modal').classList.add('hidden'); navigateTo('#/'); }
+
+    function triggerOrientationDiagnostic() {
+      const promptInput = document.getElementById('ai-user-prompt');
+      const text = promptInput.value.trim();
+      if (!text) return;
+      const content = document.getElementById('ai-diagnostic-content');
+      content.innerHTML = `<p><strong class="font-semibold text-slate-950">1. Synthèse de la demande</strong><br />${escapeHtml(text)}</p><p><strong class="font-semibold text-slate-950">2. Compétences clés à acquérir</strong></p><ul class="space-y-1.5 pl-4 border-l border-slate-100"><li>— Clarifier les objectifs opérationnels et les attendus de terrain.</li><li>— Structurer les méthodes de communication ou d'organisation adaptées au contexte.</li><li>— Mettre en pratique les acquis par des situations professionnelles simulées.</li></ul><p><strong class="font-semibold text-slate-950">3. Trame de formation suggérée</strong><br />Parcours court de 14h à 21h, articulé autour d'un diagnostic initial, d'ateliers pratiques et d'une évaluation des acquis.</p><p><strong class="font-semibold text-slate-950">4. Modalités d'évaluation recommandées</strong><br />Mises en situation, grille d'observation, auto-positionnement et validation pédagogique en fin d'action.</p><p><strong class="font-semibold text-slate-950">5. Options de prise en charge financière</strong><br />Étude possible via OPCO ou plan de développement des compétences. CPF selon l'éligibilité du parcours.</p>`;
+      document.getElementById('ai-diagnostic-wrapper').classList.remove('hidden');
+    }
+
+    function escapeHtml(value) { return value.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+
+    function copyDiagnosticToClipboard() {
+      const rawText = document.getElementById('ai-diagnostic-content')?.innerText || '';
+      const el = document.createElement('textarea');
+      el.value = rawText;
+      el.setAttribute('readonly', '');
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      const copyBtn = document.querySelector('[onclick="copyDiagnosticToClipboard()"]');
+      if (!copyBtn) return;
+      const originalText = copyBtn.innerText;
+      copyBtn.innerText = 'Copié';
+      setTimeout(() => { copyBtn.innerText = originalText; }, 2000);
+    }
+
+    window.addEventListener('load', () => navigateTo(window.location.hash || '#/'));
+    window.addEventListener('hashchange', () => navigateTo(window.location.hash || '#/'));
+  </script>
+</body>
 </html>
