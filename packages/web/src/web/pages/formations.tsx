@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import Section from "../components/Section";
 import { useReveal } from "../hooks/useReveal";
 
@@ -25,24 +24,17 @@ const formations = [
   },
 ];
 
-function FormationBlock({ f }: { f: (typeof formations)[0] }) {
+function FormationBlock({ f, isFirst }: { f: (typeof formations)[0]; isFirst: boolean }) {
   const { ref, visible } = useReveal();
   return (
-    <div ref={ref} className={`py-14 md:py-20 reveal ${visible ? "visible" : ""}`}>
-      <div className="w-8 h-px bg-bleu/6 mb-10" />
-      <h2 className="font-serif text-bleu text-[clamp(1.6rem,3.5vw,2.4rem)] font-light leading-[1.15]">
+    <div ref={ref} className={`py-16 md:py-24 reveal ${visible ? "visible" : ""}`}>
+      {!isFirst && <div className="w-5 h-px bg-bleu/5 mb-14 md:mb-18" />}
+      <h2 className="font-serif text-bleu text-[clamp(1.5rem,3.2vw,2.2rem)] font-light leading-[1.15]">
         {f.title}
       </h2>
-      <p className="text-bleu/45 text-[0.95rem] leading-[1.9] mt-5 max-w-[48ch]">
+      <p className="text-bleu/42 text-[0.95rem] leading-[1.9] mt-6 max-w-[48ch]">
         {f.text}
       </p>
-      <div className="mt-8">
-        <Link to="/contact">
-          <span className="text-[0.75rem] text-bleu/30 hover:text-bleu/55 transition-colors duration-500 tracking-[0.06em] cursor-pointer border-b border-bleu/8 hover:border-bleu/20 pb-px">
-            Découvrir
-          </span>
-        </Link>
-      </div>
     </div>
   );
 }
@@ -51,13 +43,13 @@ export default function Formations() {
   return (
     <main>
       {/* HERO */}
-      <section className="pt-40 pb-16 md:pt-52 md:pb-24">
+      <section className="pt-44 pb-16 md:pt-56 md:pb-24">
         <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
           <div className="max-w-[48ch]">
-            <h1 className="font-serif text-bleu text-[clamp(3rem,8vw,6rem)] font-light leading-[1.02] tracking-[-0.02em] animate-fade-up">
+            <h1 className="font-serif text-bleu text-[clamp(2.8rem,7vw,5.5rem)] font-light leading-[1.02] tracking-[-0.02em] animate-fade-up">
               Des formations conçues<br />pour le terrain.
             </h1>
-            <p className="mt-12 text-bleu/45 text-[0.95rem] leading-[1.9] animate-fade-up animate-delay-1">
+            <p className="mt-14 text-bleu/42 text-[0.95rem] leading-[1.9] animate-fade-up animate-delay-1">
               Des contenus opérationnels adaptés aux réalités professionnelles des secteurs industriel et tertiaire.
             </p>
           </div>
@@ -66,15 +58,15 @@ export default function Formations() {
 
       {/* FORMATIONS */}
       <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
-        {formations.map((f) => (
-          <FormationBlock key={f.title} f={f} />
+        {formations.map((f, i) => (
+          <FormationBlock key={f.title} f={f} isFirst={i === 0} />
         ))}
       </div>
 
       {/* CONFORMITÉ QUALIOPI */}
       <Section bg="gris">
         <div className="max-w-[48ch]">
-          <p className="text-bleu/40 text-[0.95rem] leading-[1.9]">
+          <p className="text-bleu/38 text-[0.95rem] leading-[1.9]">
             Programmes détaillés, prérequis, objectifs pédagogiques, modalités d'évaluation et délais d'accès communiqués avant toute inscription.
           </p>
         </div>
