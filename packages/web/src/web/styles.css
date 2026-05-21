@@ -11,11 +11,11 @@
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
-/* ─── Type scale (4 levels only) ───
-   Hero:    clamp(2.8rem, 7vw, 5.5rem)   serif 300
-   Section: clamp(1.5rem, 3.2vw, 2.2rem) serif 300
-   Body:    0.95rem (15.2px)              sans 400
-   Micro:   0.75rem (12px)                sans 400
+/* ─── Type scale (4 levels — strict) ───
+   Hero:    clamp(2.6rem, 6.5vw, 5rem)    serif 300
+   Section: clamp(1.4rem, 2.8vw, 2rem)    serif 300
+   Body:    0.95rem (15.2px)               sans 400
+   Micro:   0.72rem (11.5px)               sans 400
    ─────────────────────────────── */
 
 html {
@@ -29,7 +29,7 @@ body {
   background-color: var(--color-cream);
   color: var(--color-bleu);
   font-size: 15.2px;
-  line-height: 1.8;
+  line-height: 1.85;
   letter-spacing: 0.005em;
 }
 
@@ -38,28 +38,28 @@ body {
   color: var(--color-cream);
 }
 
-/* ─── Animations — slow, almost invisible ─── */
+/* ─── Animations — imperceptible ─── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-up {
-  animation: fadeUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: fadeUp 1.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   opacity: 0;
 }
 
-.animate-delay-1 { animation-delay: 0.25s; }
-.animate-delay-2 { animation-delay: 0.5s; }
-.animate-delay-3 { animation-delay: 0.75s; }
-.animate-delay-4 { animation-delay: 1.05s; }
-.animate-delay-5 { animation-delay: 1.4s; }
+.animate-delay-1 { animation-delay: 0.3s; }
+.animate-delay-2 { animation-delay: 0.6s; }
+.animate-delay-3 { animation-delay: 0.95s; }
+.animate-delay-4 { animation-delay: 1.3s; }
+.animate-delay-5 { animation-delay: 1.7s; }
 
 .reveal {
   opacity: 0;
-  transform: translateY(5px);
-  transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1),
-              transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateY(3px);
+  transition: opacity 1.4s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 1.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .reveal.visible {
   opacity: 1;
@@ -68,12 +68,12 @@ body {
 
 /* ─── Form inputs ─── */
 input::placeholder, textarea::placeholder {
-  color: rgba(14, 35, 64, 0.18);
+  color: rgba(14, 35, 64, 0.15);
   letter-spacing: 0.04em;
 }
 
-/* ─── Focus states for accessibility ─── */
+/* ─── Focus — subtle ─── */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-  outline: 1.5px solid rgba(14, 35, 64, 0.25);
-  outline-offset: 3px;
+  outline: 1px solid rgba(14, 35, 64, 0.15);
+  outline-offset: 4px;
 }

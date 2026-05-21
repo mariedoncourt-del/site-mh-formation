@@ -12,9 +12,9 @@ export default function Contact() {
   return (
     <main>
       {/* HERO */}
-      <section className="pt-44 pb-8 md:pt-56 md:pb-12">
+      <section className="pt-48 pb-8 md:pt-60 md:pb-12">
         <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
-          <h1 className="font-serif text-bleu text-[clamp(2.8rem,7vw,5.5rem)] font-light leading-[1.02] tracking-[-0.02em] animate-fade-up">
+          <h1 className="font-serif text-bleu text-[clamp(2.6rem,6.5vw,5rem)] font-light leading-[1.08] tracking-[-0.025em] animate-fade-up">
             Parlons de<br />votre projet.
           </h1>
         </div>
@@ -22,27 +22,27 @@ export default function Contact() {
 
       {/* COORDONNÉES + FORMULAIRE */}
       <Section>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-24 md:gap-36">
           {/* Gauche — Coordonnées */}
-          <div className="max-w-[48ch]">
-            <span className="font-serif text-bleu text-[1rem] font-light">MH Formation</span>
-            <p className="text-[0.75rem] text-bleu/25 mt-1.5 tracking-[0.06em]">
+          <div>
+            <span className="font-serif text-bleu/40 text-[0.95rem] font-light">MH Formation</span>
+            <p className="text-[0.72rem] text-bleu/18 mt-1 tracking-[0.05em]">
               Formation professionnelle continue
             </p>
 
-            <div className="mt-14 text-bleu/38 text-[0.95rem] leading-[1.9] space-y-0.5">
+            <div className="mt-16 text-bleu/30 text-[0.95rem] leading-[2] space-y-0">
               <p>Place Edmond Canet</p>
               <p>81000 Albi</p>
             </div>
 
             <a
               href="mailto:contact@mhformation-institut.org"
-              className="block mt-7 text-bleu/38 text-[0.95rem] hover:text-bleu/55 transition-colors duration-500"
+              className="block mt-8 text-bleu/30 text-[0.95rem] hover:text-bleu/45 transition-colors duration-700"
             >
               contact@mhformation-institut.org
             </a>
 
-            <p className="mt-3 text-bleu/25 text-[0.95rem]">
+            <p className="mt-3 text-bleu/18 text-[0.95rem]">
               mhformation-institut.org
             </p>
           </div>
@@ -51,12 +51,12 @@ export default function Contact() {
           <div>
             {submitted ? (
               <div className="animate-fade-up pt-2">
-                <p className="font-serif text-bleu text-[clamp(1.5rem,3.2vw,2.2rem)] font-light leading-[1.15]">
+                <p className="font-serif text-bleu/45 text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
                   Nous reviendrons vers vous rapidement.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-10">
+              <form onSubmit={handleSubmit} className="space-y-12">
                 <div>
                   <label htmlFor="nom" className="sr-only">Nom</label>
                   <input
@@ -65,7 +65,7 @@ export default function Contact() {
                     type="text"
                     required
                     placeholder="Nom"
-                    className="w-full bg-transparent border-b border-bleu/6 focus:border-bleu/20 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-500"
+                    className="w-full bg-transparent border-b border-bleu/4 focus:border-bleu/15 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700"
                   />
                 </div>
                 <div>
@@ -76,7 +76,7 @@ export default function Contact() {
                     type="email"
                     required
                     placeholder="Email"
-                    className="w-full bg-transparent border-b border-bleu/6 focus:border-bleu/20 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-500"
+                    className="w-full bg-transparent border-b border-bleu/4 focus:border-bleu/15 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700"
                   />
                 </div>
                 <div>
@@ -86,7 +86,7 @@ export default function Contact() {
                     name="telephone"
                     type="tel"
                     placeholder="Téléphone"
-                    className="w-full bg-transparent border-b border-bleu/6 focus:border-bleu/20 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-500"
+                    className="w-full bg-transparent border-b border-bleu/4 focus:border-bleu/15 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700"
                   />
                 </div>
                 <div>
@@ -96,15 +96,15 @@ export default function Contact() {
                     name="message"
                     rows={3}
                     placeholder="Message"
-                    className="w-full bg-transparent border-b border-bleu/6 focus:border-bleu/20 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-500 resize-none"
+                    className="w-full bg-transparent border-b border-bleu/4 focus:border-bleu/15 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700 resize-none"
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="text-[0.75rem] text-bleu/30 hover:text-bleu/50 tracking-[0.08em] transition-colors duration-500 border-b border-bleu/10 hover:border-bleu/20 pb-px"
+                <span
+                  onClick={(e) => { (e.target as HTMLElement).closest("form")?.requestSubmit(); }}
+                  className="inline-block text-[0.72rem] text-bleu/22 hover:text-bleu/40 tracking-[0.05em] transition-colors duration-700 cursor-pointer"
                 >
-                  Envoyer
-                </button>
+                  Envoyer →
+                </span>
               </form>
             )}
           </div>

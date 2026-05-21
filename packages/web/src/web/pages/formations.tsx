@@ -24,17 +24,19 @@ const formations = [
   },
 ];
 
-function FormationBlock({ f, isFirst }: { f: (typeof formations)[0]; isFirst: boolean }) {
+function FormationBlock({ f, index }: { f: (typeof formations)[0]; index: number }) {
   const { ref, visible } = useReveal();
+  const offset = index % 3 === 1 ? "md:ml-[10%]" : index % 3 === 2 ? "md:ml-[5%]" : "";
   return (
-    <div ref={ref} className={`py-16 md:py-24 reveal ${visible ? "visible" : ""}`}>
-      {!isFirst && <div className="w-5 h-px bg-bleu/5 mb-14 md:mb-18" />}
-      <h2 className="font-serif text-bleu text-[clamp(1.5rem,3.2vw,2.2rem)] font-light leading-[1.15]">
-        {f.title}
-      </h2>
-      <p className="text-bleu/42 text-[0.95rem] leading-[1.9] mt-6 max-w-[48ch]">
-        {f.text}
-      </p>
+    <div ref={ref} className={`py-20 md:py-28 reveal ${visible ? "visible" : ""}`}>
+      <div className={`${offset} max-w-[44ch]`}>
+        <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
+          {f.title}
+        </h2>
+        <p className="text-bleu/35 text-[0.95rem] leading-[1.85] mt-7">
+          {f.text}
+        </p>
+      </div>
     </div>
   );
 }
@@ -43,13 +45,13 @@ export default function Formations() {
   return (
     <main>
       {/* HERO */}
-      <section className="pt-44 pb-16 md:pt-56 md:pb-24">
+      <section className="pt-48 pb-20 md:pt-60 md:pb-28">
         <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
-          <div className="max-w-[48ch]">
-            <h1 className="font-serif text-bleu text-[clamp(2.8rem,7vw,5.5rem)] font-light leading-[1.02] tracking-[-0.02em] animate-fade-up">
+          <div className="max-w-[44ch]">
+            <h1 className="font-serif text-bleu text-[clamp(2.6rem,6.5vw,5rem)] font-light leading-[1.08] tracking-[-0.025em] animate-fade-up">
               Des formations conçues<br />pour le terrain.
             </h1>
-            <p className="mt-14 text-bleu/42 text-[0.95rem] leading-[1.9] animate-fade-up animate-delay-1">
+            <p className="mt-16 text-bleu/35 text-[0.95rem] leading-[1.85] animate-fade-up animate-delay-1">
               Des contenus opérationnels adaptés aux réalités professionnelles des secteurs industriel et tertiaire.
             </p>
           </div>
@@ -59,14 +61,14 @@ export default function Formations() {
       {/* FORMATIONS */}
       <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
         {formations.map((f, i) => (
-          <FormationBlock key={f.title} f={f} isFirst={i === 0} />
+          <FormationBlock key={f.title} f={f} index={i} />
         ))}
       </div>
 
       {/* CONFORMITÉ QUALIOPI */}
       <Section bg="gris">
-        <div className="max-w-[48ch]">
-          <p className="text-bleu/38 text-[0.95rem] leading-[1.9]">
+        <div className="max-w-[44ch]">
+          <p className="text-bleu/30 text-[0.95rem] leading-[1.85]">
             Programmes détaillés, prérequis, objectifs pédagogiques, modalités d'évaluation et délais d'accès communiqués avant toute inscription.
           </p>
         </div>

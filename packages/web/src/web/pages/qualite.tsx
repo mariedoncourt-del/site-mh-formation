@@ -21,16 +21,16 @@ export default function Qualite() {
   return (
     <main>
       {/* HERO */}
-      <section className="pt-44 pb-16 md:pt-56 md:pb-24">
+      <section className="pt-48 pb-20 md:pt-60 md:pb-28">
         <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
-          <div className="max-w-[48ch]">
-            <h1 className="font-serif text-bleu text-[clamp(2.8rem,7vw,5.5rem)] font-light leading-[1.02] tracking-[-0.02em] animate-fade-up">
+          <div className="max-w-[44ch]">
+            <h1 className="font-serif text-bleu text-[clamp(2.6rem,6.5vw,5rem)] font-light leading-[1.08] tracking-[-0.025em] animate-fade-up">
               Engagement qualité.
             </h1>
-            <p className="mt-14 text-bleu/42 text-[0.95rem] leading-[1.9] animate-fade-up animate-delay-1">
+            <p className="mt-16 text-bleu/35 text-[0.95rem] leading-[1.85] animate-fade-up animate-delay-1">
               MH Formation est certifié Qualiopi pour les actions de formation.
             </p>
-            <p className="mt-4 text-bleu/38 text-[0.95rem] leading-[1.9] animate-fade-up animate-delay-2">
+            <p className="mt-5 text-bleu/30 text-[0.95rem] leading-[1.85] animate-fade-up animate-delay-2">
               Cette certification atteste de la qualité des processus mis en œuvre dans le cadre de nos prestations.
             </p>
           </div>
@@ -39,11 +39,11 @@ export default function Qualite() {
 
       {/* ENGAGEMENTS */}
       <Section>
-        <div className="max-w-[48ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.5rem,3.2vw,2.2rem)] font-light leading-[1.15]">
+        <div className="max-w-[44ch]">
+          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
             Nos engagements.
           </h2>
-          <div className="mt-16 md:mt-24 space-y-2 text-bleu/42 text-[0.95rem] leading-[1.9]">
+          <div className="mt-20 md:mt-28 space-y-2 text-bleu/35 text-[0.95rem] leading-[1.85]">
             <p>— Analyse des besoins en amont</p>
             <p>— Adaptation des contenus pédagogiques</p>
             <p>— Compétences et accompagnement des formateurs</p>
@@ -55,15 +55,15 @@ export default function Qualite() {
 
       {/* INDICATEURS */}
       <Section bg="gris">
-        <div className="max-w-[48ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.5rem,3.2vw,2.2rem)] font-light leading-[1.15]">
+        <div className="md:ml-[8%] max-w-[44ch]">
+          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
             Indicateurs qualité.
           </h2>
-          <div className="mt-16 md:mt-24 space-y-12">
+          <div className="mt-20 md:mt-28 space-y-14">
             {indicateurs.map((ind) => (
               <div key={ind.label}>
-                <p className="text-[0.75rem] text-bleu/25 tracking-[0.08em]">{ind.label}</p>
-                <p className="text-bleu/50 text-[0.95rem] leading-[1.9] mt-1.5">{ind.value}</p>
+                <p className="text-[0.72rem] text-bleu/18 tracking-[0.07em]">{ind.label}</p>
+                <p className="text-bleu/40 text-[0.95rem] leading-[1.85] mt-2">{ind.value}</p>
               </div>
             ))}
           </div>
@@ -72,19 +72,19 @@ export default function Qualite() {
 
       {/* DOCUMENTS */}
       <Section id="documents">
-        <div className="max-w-[48ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.5rem,3.2vw,2.2rem)] font-light leading-[1.15]">
+        <div className="max-w-[44ch]">
+          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
             Documents utiles.
           </h2>
-          <div className="mt-16 md:mt-24">
+          <div className="mt-20 md:mt-28">
             {documents.map((doc) => (
-              <div key={doc.label} className="flex items-center justify-between py-5 border-b border-bleu/4">
-                <span className="text-bleu/45 text-[0.95rem]">{doc.label}</span>
+              <div key={doc.label} className="flex items-center justify-between py-6 border-b border-bleu/3">
+                <span className="text-bleu/38 text-[0.95rem]">{doc.label}</span>
                 <a
                   href={doc.href}
-                  className="text-[0.75rem] text-bleu/22 hover:text-bleu/45 transition-colors duration-500 tracking-[0.06em]"
+                  className="text-[0.72rem] text-bleu/15 hover:text-bleu/35 transition-colors duration-700 tracking-[0.05em]"
                 >
-                  Télécharger
+                  Télécharger →
                 </a>
               </div>
             ))}
