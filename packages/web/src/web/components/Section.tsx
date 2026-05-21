@@ -14,7 +14,7 @@ export default function Section({ children, className = "", bg = "cream", id }: 
     <section
       id={id}
       ref={ref}
-      className={`py-20 md:py-32 lg:py-40 ${bg === "gris" ? "bg-gris/30" : ""} ${className} reveal ${visible ? "visible" : ""}`}
+      className={`py-24 md:py-40 lg:py-52 ${bg === "gris" ? "bg-gris/15" : ""} ${className} reveal ${visible ? "visible" : ""}`}
     >
       <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
         {children}

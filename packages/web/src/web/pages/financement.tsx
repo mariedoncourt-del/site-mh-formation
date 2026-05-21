@@ -4,20 +4,22 @@ export default function Financement() {
   return (
     <main>
       {/* HERO */}
-      <section className="pt-44 pb-20 md:pt-56 md:pb-32">
+      <section className="pt-40 pb-16 md:pt-52 md:pb-24">
         <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
-          <h1 className="font-serif text-bleu text-[clamp(2.8rem,6vw,5rem)] font-light leading-[1.1] animate-fade-up">
-            Solutions de financement.
-          </h1>
-          <p className="mt-10 text-bleu/55 text-base md:text-[1.125rem] max-w-xl leading-[1.8] animate-fade-up animate-delay-1">
-            Nous accompagnons les entreprises et les professionnels dans leurs démarches de prise en charge et de financement.
-          </p>
+          <div className="max-w-[48ch]">
+            <h1 className="font-serif text-bleu text-[clamp(3rem,8vw,6rem)] font-light leading-[1.02] tracking-[-0.02em] animate-fade-up">
+              Solutions de financement.
+            </h1>
+            <p className="mt-12 text-bleu/45 text-[0.95rem] leading-[1.9] animate-fade-up animate-delay-1">
+              Nous accompagnons les entreprises et les professionnels dans leurs démarches de prise en charge et de financement.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* BLOCS FINANCEMENT */}
       <Section>
-        <div className="space-y-16 md:space-y-24">
+        <div className="max-w-[48ch] space-y-16 md:space-y-24">
           {[
             {
               title: "OPCO",
@@ -32,11 +34,12 @@ export default function Financement() {
               text: "Accompagnement des entreprises dans l'organisation et le financement des actions de formation.",
             },
           ].map((b) => (
-            <div key={b.title} className="border-t border-border pt-10 md:pt-12">
-              <h2 className="font-serif text-bleu text-2xl md:text-3xl font-light mb-5">
+            <div key={b.title}>
+              <div className="w-8 h-px bg-bleu/6 mb-8" />
+              <h2 className="font-serif text-bleu text-[clamp(1.6rem,3.5vw,2.4rem)] font-light leading-[1.15]">
                 {b.title}
               </h2>
-              <p className="text-bleu/55 text-base md:text-[1.125rem] max-w-lg leading-[1.8]">
+              <p className="text-bleu/45 text-[0.95rem] leading-[1.9] mt-5">
                 {b.text}
               </p>
             </div>
@@ -44,20 +47,21 @@ export default function Financement() {
         </div>
       </Section>
 
-      {/* SECTION ADMINISTRATIVE */}
+      {/* ACCOMPAGNEMENT ADMINISTRATIF */}
       <Section bg="gris">
-        <h2 className="font-serif text-bleu text-3xl md:text-4xl font-light mb-14">
-          Accompagnement administratif.
-        </h2>
-        <div className="max-w-xl space-y-4 text-bleu/55 text-base md:text-[1.125rem] leading-[1.8]">
-          <p>Documents fournis&nbsp;:</p>
-          {["Devis", "Conventions", "Programmes", "Convocations", "Attestations de formation"].map((d) => (
-            <p key={d}>
-              <span className="text-bleu/25 mr-4">—</span>
-              {d}
-            </p>
-          ))}
-          <p className="mt-10">
+        <div className="max-w-[48ch]">
+          <h2 className="font-serif text-bleu text-[clamp(1.6rem,3.5vw,2.4rem)] font-light leading-[1.15]">
+            Accompagnement administratif.
+          </h2>
+          <div className="mt-16 md:mt-24 space-y-2 text-bleu/45 text-[0.95rem] leading-[1.9]">
+            <p>Documents fournis&thinsp;:</p>
+            <p>— Devis</p>
+            <p>— Conventions</p>
+            <p>— Programmes</p>
+            <p>— Convocations</p>
+            <p>— Attestations de formation</p>
+          </div>
+          <p className="mt-10 text-bleu/40 text-[0.95rem] leading-[1.9]">
             Les délais d'accès et modalités administratives sont communiqués avant toute inscription.
           </p>
         </div>
