@@ -30,7 +30,7 @@ export default function Footer() {
             { href: "/qualite#documents", label: "Réclamation" },
           ].map((l) => (
             <Link key={l.label} to={l.href}>
-              <span className="text-[0.68rem] text-bleu/12 hover:text-bleu/28 transition-colors duration-700 cursor-pointer tracking-[0.05em]">
+              <span className="text-[0.68rem] text-bleu/10 hover:text-bleu/25 transition-colors duration-700 cursor-pointer tracking-[0.05em]">
                 {l.label}
               </span>
             </Link>

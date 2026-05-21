@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import Section from "../components/Section";
 
 export default function Accessibilite() {
@@ -41,12 +42,11 @@ export default function Accessibilite() {
           <div className="mt-20 md:mt-28 space-y-6 text-bleu/35 text-[0.95rem] leading-[1.85]">
             <p>Un référent handicap est disponible pour accompagner les stagiaires et étudier les solutions adaptées.</p>
             <p>
-              <a
-                href="mailto:contact@mhformation-institut.org"
-                className="text-bleu/22 hover:text-bleu/40 transition-colors duration-700"
-              >
-                Contact sur demande →
-              </a>
+              <Link to="/contact">
+                <span className="text-bleu/22 hover:text-bleu/40 transition-colors duration-700 cursor-pointer">
+                  Nous contacter →
+                </span>
+              </Link>
             </p>
           </div>
         </div>

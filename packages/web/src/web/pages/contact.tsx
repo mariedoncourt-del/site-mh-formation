@@ -31,7 +31,7 @@ export default function Contact() {
             </p>
 
             <div className="mt-16 text-bleu/30 text-[0.95rem] leading-[2] space-y-0">
-              <p>Place Edmond Canet</p>
+              <p>20 Place Edmond Canet</p>
               <p>81000 Albi</p>
             </div>
 
@@ -41,10 +41,6 @@ export default function Contact() {
             >
               contact@mhformation-institut.org
             </a>
-
-            <p className="mt-3 text-bleu/18 text-[0.95rem]">
-              mhformation-institut.org
-            </p>
           </div>
 
           {/* Droite — Formulaire */}
@@ -65,7 +61,7 @@ export default function Contact() {
                     type="text"
                     required
                     placeholder="Nom"
-                    className="w-full bg-transparent border-b border-bleu/4 focus:border-bleu/15 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700"
+                    className="w-full bg-transparent border-b border-bleu/[0.02] focus:border-bleu/8 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700"
                   />
                 </div>
                 <div>
@@ -76,17 +72,17 @@ export default function Contact() {
                     type="email"
                     required
                     placeholder="Email"
-                    className="w-full bg-transparent border-b border-bleu/4 focus:border-bleu/15 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700"
+                    className="w-full bg-transparent border-b border-bleu/[0.02] focus:border-bleu/8 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700"
                   />
                 </div>
                 <div>
-                  <label htmlFor="telephone" className="sr-only">Téléphone</label>
+                  <label htmlFor="entreprise" className="sr-only">Entreprise</label>
                   <input
-                    id="telephone"
-                    name="telephone"
-                    type="tel"
-                    placeholder="Téléphone"
-                    className="w-full bg-transparent border-b border-bleu/4 focus:border-bleu/15 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700"
+                    id="entreprise"
+                    name="entreprise"
+                    type="text"
+                    placeholder="Entreprise"
+                    className="w-full bg-transparent border-b border-bleu/[0.02] focus:border-bleu/8 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700"
                   />
                 </div>
                 <div>
@@ -95,16 +91,16 @@ export default function Contact() {
                     id="message"
                     name="message"
                     rows={3}
-                    placeholder="Message"
-                    className="w-full bg-transparent border-b border-bleu/4 focus:border-bleu/15 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700 resize-none"
+                    placeholder="Votre besoin"
+                    className="w-full bg-transparent border-b border-bleu/[0.02] focus:border-bleu/8 text-bleu text-[0.95rem] py-4 outline-none transition-colors duration-700 resize-none"
                   />
                 </div>
-                <span
-                  onClick={(e) => { (e.target as HTMLElement).closest("form")?.requestSubmit(); }}
-                  className="inline-block text-[0.72rem] text-bleu/22 hover:text-bleu/40 tracking-[0.05em] transition-colors duration-700 cursor-pointer"
+                <button
+                  type="submit"
+                  className="bg-transparent border-none p-0 text-[0.72rem] text-bleu/22 hover:text-bleu/40 tracking-[0.05em] transition-colors duration-700 cursor-pointer font-normal"
                 >
                   Envoyer →
-                </span>
+                </button>
               </form>
             )}
           </div>

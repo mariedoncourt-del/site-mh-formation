@@ -5,7 +5,7 @@ export default function Accueil() {
   return (
     <main>
       {/* ─── HERO ─── */}
-      <section className="min-h-[100svh] flex flex-col justify-end bg-cream relative pb-20 md:pb-28">
+      <section className="min-h-[100svh] flex flex-col justify-end bg-cream relative pb-24 md:pb-32">
         <div className="max-w-[1180px] mx-auto px-6 md:px-[90px] w-full">
           <div className="md:max-w-[50%]">
             <h1 className="font-serif text-bleu text-[clamp(2.6rem,6.5vw,5rem)] font-light leading-[1.08] tracking-[-0.025em] animate-fade-up">
@@ -15,7 +15,7 @@ export default function Accueil() {
               Application immédiate.
             </p>
 
-            <div className="mt-36 md:mt-48 animate-fade-up animate-delay-2">
+            <div className="mt-40 md:mt-56 animate-fade-up animate-delay-2">
               <p className="text-[0.72rem] text-bleu/18 tracking-[0.07em]">
                 Formation professionnelle continue
               </p>
@@ -24,7 +24,7 @@ export default function Accueil() {
               </p>
             </div>
 
-            <div className="mt-12 animate-fade-up animate-delay-3">
+            <div className="mt-14 animate-fade-up animate-delay-3">
               <Link to="/contact">
                 <span className="text-[0.72rem] text-bleu/18 hover:text-bleu/35 transition-colors duration-700 tracking-[0.05em] cursor-pointer">
                   Parler de votre projet →
@@ -33,9 +33,6 @@ export default function Accueil() {
             </div>
           </div>
         </div>
-
-        {/* Ligne verticale — presque invisible */}
-        <div className="hidden md:block absolute top-[25%] left-[88px] w-px h-8 bg-bleu/3" />
       </section>
 
       {/* ─── FORMER POUR TRANSFORMER ─── */}
@@ -127,7 +124,7 @@ export default function Accueil() {
             Parlons de votre projet.
           </h2>
           <p className="mt-14 text-bleu/32 text-[0.95rem] leading-[1.85]">
-            Nous accompagnons les entreprises et les professionnels<br />
+            Nous accompagnons les entreprises et les professionnels<br className="hidden md:inline" />
             dans le développement de leurs compétences.
           </p>
           <div className="mt-14">

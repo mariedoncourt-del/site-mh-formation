@@ -11,12 +11,18 @@
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
-/* ─── Type scale (4 levels — strict) ───
-   Hero:    clamp(2.6rem, 6.5vw, 5rem)    serif 300
-   Section: clamp(1.4rem, 2.8vw, 2rem)    serif 300
-   Body:    0.95rem (15.2px)               sans 400
-   Micro:   0.72rem (11.5px)               sans 400
-   ─────────────────────────────── */
+/* ═══════════════════════════════════════
+   TYPE SCALE — VERROUILLÉE (ne pas modifier)
+   ───────────────────────────────────────
+   Hero:    clamp(2.6rem, 6.5vw, 5rem)   serif 300  leading-[1.08]  tracking-[-0.025em]
+   Section: clamp(1.4rem, 2.8vw, 2rem)   serif 300  leading-[1.2]
+   Body:    0.95rem (15.2px)              sans  400  leading-[1.85]
+   Micro:   0.72rem (11.5px)             sans  400  tracking-[0.07em]
+   Nano:    0.68rem                       sans  400  tracking-[0.05em]
+   ───────────────────────────────────────
+   Graisses:  serif=300  sans=400
+   Jamais de bold, semibold, medium.
+   ═══════════════════════════════════════ */
 
 html {
   scroll-behavior: smooth;
@@ -38,7 +44,7 @@ body {
   color: var(--color-cream);
 }
 
-/* ─── Animations — imperceptible ─── */
+/* ─── Animations — imperceptibles ─── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -53,7 +59,6 @@ body {
 .animate-delay-2 { animation-delay: 0.6s; }
 .animate-delay-3 { animation-delay: 0.95s; }
 .animate-delay-4 { animation-delay: 1.3s; }
-.animate-delay-5 { animation-delay: 1.7s; }
 
 .reveal {
   opacity: 0;
@@ -68,12 +73,12 @@ body {
 
 /* ─── Form inputs ─── */
 input::placeholder, textarea::placeholder {
-  color: rgba(14, 35, 64, 0.15);
+  color: rgba(14, 35, 64, 0.12);
   letter-spacing: 0.04em;
 }
 
 /* ─── Focus — subtle ─── */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-  outline: 1px solid rgba(14, 35, 64, 0.15);
+  outline: 1px solid rgba(14, 35, 64, 0.12);
   outline-offset: 4px;
 }

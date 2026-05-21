@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import Section from "../components/Section";
 
 export default function Financement() {
@@ -66,6 +67,13 @@ export default function Financement() {
           <p className="mt-14 text-bleu/30 text-[0.95rem] leading-[1.85]">
             Les délais d'accès et modalités administratives sont communiqués avant toute inscription.
           </p>
+          <div className="mt-14">
+            <Link to="/contact">
+              <span className="text-[0.72rem] text-bleu/18 hover:text-bleu/35 transition-colors duration-700 tracking-[0.05em] cursor-pointer">
+                Nous contacter →
+              </span>
+            </Link>
+          </div>
         </div>
       </Section>
     </main>
