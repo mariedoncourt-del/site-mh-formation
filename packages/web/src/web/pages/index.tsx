@@ -5,137 +5,194 @@ export default function Accueil() {
   return (
     <main>
       {/* ─── HERO ─── */}
-      <section className="min-h-[100svh] flex flex-col justify-end bg-cream relative pb-24 md:pb-32">
-        <div className="max-w-[1180px] mx-auto px-6 md:px-[90px] w-full">
-          <div className="md:max-w-[50%]">
-            <h1 className="font-serif text-bleu text-[clamp(2.6rem,6.5vw,5rem)] font-light leading-[1.08] tracking-[-0.025em] animate-fade-up">
-              Compétences utiles.
-            </h1>
-            <p className="font-serif text-bleu/30 text-[clamp(2.6rem,6.5vw,5rem)] font-light leading-[1.08] tracking-[-0.025em] animate-fade-up animate-delay-1">
-              Application immédiate.
-            </p>
+      <div className="py-40 md:py-52 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-10 space-y-12 relative pl-8">
+              <div className="absolute left-0 top-3 bottom-3 w-[1px] bg-slate-200" />
 
-            <div className="mt-40 md:mt-56 animate-fade-up animate-delay-2">
-              <p className="text-[0.72rem] text-bleu/18 tracking-[0.07em]">
-                Formation professionnelle continue
+              <span className="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">
+                Formation professionnelle continue — Secteurs industriel et tertiaire
+              </span>
+
+              <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-serif font-light text-slate-900 tracking-tight leading-tight">
+                Former moins.<br />Transformer davantage.
+              </h1>
+
+              <p className="text-sm md:text-base text-slate-600 font-light leading-relaxed max-w-xl">
+                Des formations courtes conçues pour modifier les pratiques professionnelles.
               </p>
-              <p className="text-[0.72rem] text-bleu/18 tracking-[0.07em] mt-0.5">
-                Secteurs industriel et tertiaire
-              </p>
+
+              <div className="pt-2">
+                <Link to="/contact">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-slate-900 font-semibold border-b border-slate-900/15 pb-0.5 cursor-pointer">
+                    Parler de votre projet
+                  </span>
+                </Link>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div className="mt-14 animate-fade-up animate-delay-3">
-              <Link to="/contact">
-                <span className="text-[0.72rem] text-bleu/18 hover:text-bleu/35 transition-colors duration-700 tracking-[0.05em] cursor-pointer">
-                  Parler de votre projet →
+      {/* ─── NOTRE APPROCHE ─── */}
+      <Section bg="slate" bordered>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-4">
+            <h2 className="text-2xl md:text-3xl font-serif font-light text-slate-900 tracking-tight">
+              Notre approche
+            </h2>
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6 space-y-6 text-sm md:text-base text-slate-600 font-light leading-relaxed">
+            <p>
+              La formation professionnelle n'a de valeur que si elle se traduit par des pratiques réelles au sein des équipes. Trop de programmes s'en tiennent à des exposés théoriques difficiles à transposer.
+            </p>
+            <p>
+              Notre démarche repose sur des apports ciblés et des temps de mise en pratique immédiate sur les dossiers de l'entreprise. Chaque session est dimensionnée pour répondre à un besoin d'efficacité opérationnelle direct.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* ─── OBJECTIFS D'IMPACT ─── */}
+      <Section>
+        <div className="space-y-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-8 pl-8 relative">
+              <div className="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-200" />
+              <h2 className="text-2xl md:text-3xl font-serif font-light text-slate-900 tracking-tight">
+                Objectifs d'impact
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-sm text-slate-600 font-light leading-relaxed pl-8">
+            {[
+              {
+                num: "01",
+                title: "Situations de travail réelles",
+                text: "Les exercices s'appuient sur l'activité quotidienne et les outils réels des stagiaires afin d'éviter la déperdition des acquis.",
+              },
+              {
+                num: "02",
+                title: "Formats opérationnels courts",
+                text: "Des modules condensés conçus pour s'intégrer dans le planning de production sans désorganiser le service.",
+              },
+              {
+                num: "03",
+                title: "Mesure d'impact direct",
+                text: "Un bilan des acquis est effectué en fin de session pour évaluer la capacité d'autonomie opérationnelle du collaborateur.",
+              },
+            ].map((item) => (
+              <div key={item.num} className="space-y-3">
+                <span className="text-[10px] font-mono text-slate-300">{item.num} /</span>
+                <h3 className="text-base font-serif text-slate-900 font-medium">{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* ─── PROGRAMMES DE FORMATION ─── */}
+      <Section>
+        <div className="space-y-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pl-8 relative">
+            <div className="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-200" />
+            <h2 className="text-2xl md:text-3xl font-serif font-light text-slate-900 tracking-tight">
+              Programmes de formation
+            </h2>
+            <Link to="/formations">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-slate-900 font-semibold border-b border-slate-900/10 pb-0.5 self-start md:self-auto cursor-pointer">
+                Consulter les parcours
+              </span>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 pl-8">
+            {[
+              {
+                title: "Encadrement et management de proximité",
+                text: "Suivi du travail au quotidien, répartition des tâches, gestion des consignes et accompagnement des équipes de production.",
+              },
+              {
+                title: "Relations et communication en équipe",
+                text: "Fiabiliser la transmission des consignes de travail, clarifier les échanges et prévenir les frictions en atelier ou en service.",
+              },
+              {
+                title: "Accueil physique et téléphonique",
+                text: "Réflexes d'accueil, traitement des demandes usagers, gestion des réclamations et des situations d'insatisfaction client.",
+              },
+              {
+                title: "Gestion du temps et des priorités",
+                text: "Planifier son planning d'activité, arbitrer sa charge de travail de manière rationnelle et organiser les imprévus opérationnels.",
+              },
+              {
+                title: "Coordination et travail d'équipe",
+                text: "S'accorder sur les méthodes de production, harmoniser les repères de travail et clarifier les circuits de validation internes.",
+              },
+            ].map((f) => (
+              <div key={f.title} className="space-y-2">
+                <h3 className="text-base font-serif font-medium text-slate-900">{f.title}</h3>
+                <p className="text-[13px] md:text-sm text-slate-600 font-light leading-relaxed">{f.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* ─── ORGANISATION ET CONFORMITÉ ─── */}
+      <Section bg="slate" bordered>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-5 space-y-6 pl-8 relative">
+            <div className="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-200" />
+            <h2 className="text-2xl md:text-3xl font-serif font-light text-slate-900 tracking-tight leading-tight">
+              Organisation et conformité
+            </h2>
+            <p className="text-sm text-slate-600 font-light leading-relaxed">
+              MH Formation s'inscrit dans une démarche qualité conforme au Référentiel National Qualité. Ce cadre réglementaire structure l'ensemble de nos processus, de l'entretien préalable de positionnement jusqu'au bilan des acquis.
+            </p>
+            <div className="pt-2">
+              <Link to="/qualite">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-slate-900 font-semibold border-b border-slate-900/10 pb-0.5 cursor-pointer">
+                  Consulter nos engagements qualité
                 </span>
               </Link>
             </div>
           </div>
+          <div className="lg:col-span-6 lg:col-start-7 bg-white p-8 space-y-6 border border-slate-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="space-y-1">
+                <span className="block text-lg font-serif text-slate-900 font-light">Analyse préalable</span>
+                <span className="block text-[10px] uppercase tracking-[0.18em] text-slate-400 font-medium">Vérification des prérequis et des besoins</span>
+              </div>
+              <div className="space-y-1">
+                <span className="block text-lg font-serif text-slate-900 font-light">Validation</span>
+                <span className="block text-[10px] uppercase tracking-[0.18em] text-slate-400 font-medium">Suivi d'assiduité et d'évaluation des acquis</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </Section>
 
-      {/* ─── FORMER POUR TRANSFORMER ─── */}
-      <Section>
-        <div className="max-w-[44ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Former pour transformer.
-          </h2>
-
-          <div className="mt-20 md:mt-28 space-y-6 text-bleu/32 text-[0.95rem] leading-[1.85]">
-            <p>La plupart des formations sont oubliées rapidement.</p>
-            <p>Trop longues.<br />Trop théoriques.<br />Trop éloignées du réel.</p>
-          </div>
-
-          <div className="mt-14 text-bleu/50 text-[0.95rem] leading-[1.85]">
-            <p>Chez MH Formation, nous faisons l'inverse.</p>
-            <p className="mt-6">Concrètes.<br />Ciblées.<br />Immédiatement applicables.</p>
-          </div>
-
-          <p className="mt-14 text-bleu/32 text-[0.95rem] leading-[1.85]">
-            Chaque programme vise un résultat visible sur le terrain.
+      {/* ─── CONTACT ─── */}
+      <div className="py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6 text-center space-y-6">
+          <h3 className="text-xl md:text-2xl font-serif font-light text-slate-900 tracking-tight">
+            Une question administrative ou de financement ?
+          </h3>
+          <p className="text-sm text-slate-600 font-light max-w-xl mx-auto leading-relaxed">
+            Notre équipe analyse la faisabilité de votre projet professionnel auprès des organismes de financement (OPCO, CPF, branches sectorielles).
           </p>
-        </div>
-      </Section>
-
-      {/* ─── CE QUE VOUS GAGNEZ ─── */}
-      <Section>
-        <div className="md:ml-[12%] max-w-[44ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Ce que vous gagnez.
-          </h2>
-          <div className="mt-20 md:mt-28 space-y-3.5 text-bleu/38 text-[0.95rem] leading-[1.85]">
-            <p>Montée en compétence rapide</p>
-            <p>Méthodes directement applicables</p>
-            <p>Plus d'autonomie au quotidien</p>
-            <p>Amélioration visible des pratiques professionnelles</p>
-          </div>
-        </div>
-      </Section>
-
-      {/* ─── DOMAINES ─── */}
-      <Section>
-        <div className="max-w-[44ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Domaines d'intervention.
-          </h2>
-          <div className="mt-20 md:mt-28 space-y-3.5 text-bleu/38 text-[0.95rem] leading-[1.85]">
-            <p>Management de proximité</p>
-            <p>Communication professionnelle</p>
-            <p>Relation client</p>
-            <p>Organisation du travail</p>
-            <p>Accompagnement collectif</p>
-          </div>
-          <div className="mt-16">
-            <Link to="/formations">
-              <span className="text-[0.72rem] text-bleu/18 hover:text-bleu/35 transition-colors duration-700 tracking-[0.05em] cursor-pointer">
-                Voir les formations →
-              </span>
-            </Link>
-          </div>
-        </div>
-      </Section>
-
-      {/* ─── QUALITÉ & ACCOMPAGNEMENT ─── */}
-      <Section bg="gris">
-        <div className="md:ml-[8%] max-w-[44ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Qualité et accompagnement.
-          </h2>
-          <div className="mt-20 md:mt-28 space-y-6 text-bleu/35 text-[0.95rem] leading-[1.85]">
-            <p>Organisme certifié Qualiopi<br />pour les actions de formation.</p>
-            <p>Adaptation des formations aux personnes en situation de handicap.</p>
-            <p>Accompagnement aux solutions de financement&thinsp;:<br />OPCO, CPF et plan de développement des compétences.</p>
-          </div>
-          <div className="mt-16">
-            <Link to="/qualite">
-              <span className="text-[0.72rem] text-bleu/18 hover:text-bleu/35 transition-colors duration-700 tracking-[0.05em] cursor-pointer">
-                En savoir plus →
-              </span>
-            </Link>
-          </div>
-        </div>
-      </Section>
-
-      {/* ─── CONTACT DISCRET ─── */}
-      <Section>
-        <div className="max-w-[44ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Parlons de votre projet.
-          </h2>
-          <p className="mt-14 text-bleu/32 text-[0.95rem] leading-[1.85]">
-            Nous accompagnons les entreprises et les professionnels<br className="hidden md:inline" />
-            dans le développement de leurs compétences.
-          </p>
-          <div className="mt-14">
+          <div className="pt-2">
             <Link to="/contact">
-              <span className="text-[0.72rem] text-bleu/18 hover:text-bleu/35 transition-colors duration-700 tracking-[0.05em] cursor-pointer">
-                Nous contacter →
+              <span className="text-[10px] uppercase tracking-[0.2em] text-slate-900 font-semibold border-b border-slate-900/15 pb-0.5 cursor-pointer">
+                Faire une demande d'étude
               </span>
             </Link>
           </div>
         </div>
-      </Section>
+      </div>
     </main>
   );
 }

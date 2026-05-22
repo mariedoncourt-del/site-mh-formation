@@ -1,28 +1,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bleu: #0E2340;
-  --color-bleu-light: #1a3a5c;
-  --color-cream: #F7F5F2;
-  --color-gris: #D8D3CC;
-  --color-gris-dark: #6B7280;
-  --color-border: #E8E4DE;
-  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-900: #0F172A;
+  --color-slate-950: #020617;
+  --color-bg: #FCFCFC;
+  --font-serif: "Source Serif 4", "Georgia", serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
-
-/* ═══════════════════════════════════════
-   TYPE SCALE — VERROUILLÉE (ne pas modifier)
-   ───────────────────────────────────────
-   Hero:    clamp(2.6rem, 6.5vw, 5rem)   serif 300  leading-[1.08]  tracking-[-0.025em]
-   Section: clamp(1.4rem, 2.8vw, 2rem)   serif 300  leading-[1.2]
-   Body:    0.95rem (15.2px)              sans  400  leading-[1.85]
-   Micro:   0.72rem (11.5px)             sans  400  tracking-[0.07em]
-   Nano:    0.68rem                       sans  400  tracking-[0.05em]
-   ───────────────────────────────────────
-   Graisses:  serif=300  sans=400
-   Jamais de bold, semibold, medium.
-   ═══════════════════════════════════════ */
 
 html {
   scroll-behavior: smooth;
@@ -32,39 +25,31 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-cream);
-  color: var(--color-bleu);
-  font-size: 15.2px;
-  line-height: 1.85;
-  letter-spacing: 0.005em;
+  background-color: var(--color-bg);
+  color: var(--color-slate-800);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 ::selection {
-  background-color: var(--color-bleu);
-  color: var(--color-cream);
+  background-color: var(--color-slate-100);
 }
 
-/* ─── Animations — imperceptibles ─── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ─── Animations ─── */
+@keyframes silentFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.animate-fade-up {
-  animation: fadeUp 1.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-  opacity: 0;
+.route-fade {
+  animation: silentFade 0.3s ease-out forwards;
 }
-
-.animate-delay-1 { animation-delay: 0.3s; }
-.animate-delay-2 { animation-delay: 0.6s; }
-.animate-delay-3 { animation-delay: 0.95s; }
-.animate-delay-4 { animation-delay: 1.3s; }
 
 .reveal {
   opacity: 0;
   transform: translateY(3px);
-  transition: opacity 1.4s cubic-bezier(0.23, 1, 0.32, 1),
-              transform 1.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .reveal.visible {
   opacity: 1;
@@ -73,12 +58,12 @@ body {
 
 /* ─── Form inputs ─── */
 input::placeholder, textarea::placeholder {
-  color: rgba(14, 35, 64, 0.12);
-  letter-spacing: 0.04em;
+  color: var(--color-slate-300);
+  letter-spacing: 0.02em;
 }
 
-/* ─── Focus — subtle ─── */
+/* ─── Focus ─── */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-  outline: 1px solid rgba(14, 35, 64, 0.12);
+  outline: 1px solid var(--color-slate-300);
   outline-offset: 4px;
 }

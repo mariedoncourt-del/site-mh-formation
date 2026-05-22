@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import Section from "../components/Section";
 
 /* ─── Indicateurs administrables ─── */
 const indicateurs = [
@@ -11,10 +10,9 @@ const indicateurs = [
 ];
 
 const documents = [
-  { label: "Certificat Qualiopi", href: "#" },
   { label: "Règlement intérieur", href: "#" },
-  { label: "Conditions générales de vente", href: "#" },
-  { label: "Livret d'accueil", href: "#" },
+  { label: "Conditions Générales de Vente (CGV)", href: "#" },
+  { label: "Livret d'accueil stagiaire", href: "#" },
   { label: "Procédure handicap", href: "#" },
   { label: "Procédure de réclamation", href: "#" },
 ];
@@ -22,195 +20,106 @@ const documents = [
 export default function Qualite() {
   return (
     <main>
-      {/* HERO */}
-      <section className="pt-48 pb-20 md:pt-60 md:pb-28">
-        <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
-          <div className="max-w-[44ch]">
-            <h1 className="font-serif text-bleu text-[clamp(2.6rem,6.5vw,5rem)] font-light leading-[1.08] tracking-[-0.025em] animate-fade-up">
-              Engagement qualité.
-            </h1>
-            <p className="mt-16 text-bleu/35 text-[0.95rem] leading-[1.85] animate-fade-up animate-delay-1">
-              MH Formation est certifié Qualiopi au titre de la catégorie «&thinsp;actions de formation&thinsp;».
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* PÉRIMÈTRE DE CERTIFICATION */}
-      <Section>
-        <div className="max-w-[44ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Certification Qualiopi.
-          </h2>
-          <div className="mt-20 md:mt-28 space-y-6 text-bleu/35 text-[0.95rem] leading-[1.85]">
-            <p>
-              La certification qualité a été délivrée au titre de la catégorie d'action suivante&thinsp;:
-              actions de formation.
-            </p>
-            <div className="space-y-2">
-              <p className="text-[0.72rem] text-bleu/18 tracking-[0.07em]">Organisme certificateur</p>
-              <p>AFNOR Certification</p>
-            </div>
-            <p>
-              Cette certification atteste de la qualité du processus mis en œuvre
-              par MH Formation et contribuant au développement des compétences.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* ENGAGEMENTS — 7 critères Qualiopi */}
-      <Section bg="gris">
-        <div className="md:ml-[6%] max-w-[48ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Nos engagements.
-          </h2>
-          <div className="mt-20 md:mt-28 space-y-20 md:space-y-24">
-            {[
-              {
-                criterion: "Information du public",
-                text: "Communication claire et accessible sur les prestations, les résultats et les indicateurs de performance.",
-              },
-              {
-                criterion: "Identification des objectifs",
-                text: "Analyse des besoins en amont, définition des objectifs pédagogiques et adaptation des contenus au contexte professionnel.",
-              },
-              {
-                criterion: "Adaptation des prestations",
-                text: "Programmes sur mesure tenant compte du profil des stagiaires, des prérequis et des conditions d'accès.",
-              },
-              {
-                criterion: "Moyens pédagogiques",
-                text: "Ressources adaptées, modalités pédagogiques variées et conditions matérielles favorisant l'apprentissage.",
-              },
-              {
-                criterion: "Qualification des intervenants",
-                text: "Compétences et développement professionnel continu des formateurs.",
-              },
-              {
-                criterion: "Inscription dans l'environnement",
-                text: "Veille réglementaire, partenariats professionnels et ancrage dans les réalités des secteurs d'activité.",
-              },
-              {
-                criterion: "Amélioration continue",
-                text: "Recueil systématique des appréciations, traitement des réclamations et démarche d'amélioration des prestations.",
-              },
-            ].map((item) => (
-              <div key={item.criterion}>
-                <p className="text-[0.72rem] text-bleu/15 tracking-[0.07em]">
-                  {item.criterion}
-                </p>
-                <p className="text-bleu/38 text-[0.95rem] leading-[1.85] mt-3">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* INDICATEURS */}
-      <Section>
-        <div className="md:ml-[8%] max-w-[44ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Indicateurs qualité.
-          </h2>
-          <p className="mt-10 text-bleu/22 text-[0.72rem] tracking-[0.07em]">
-            Mis à jour annuellement
+      {/* Header */}
+      <div className="py-20 bg-slate-50">
+        <div className="max-w-3xl mx-auto px-6 text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl font-serif font-light text-slate-900 tracking-tight">
+            Démarche qualité.
+          </h1>
+          <p className="text-sm md:text-base text-slate-600 font-light leading-relaxed">
+            MH Formation s'inscrit dans une démarche qualité conforme au Référentiel National Qualité (RNQ). Les indicateurs de résultat seront publiés dès qu'un volume suffisant de données aura été consolidé.
           </p>
-          <div className="mt-16 md:mt-24 space-y-14">
+        </div>
+      </div>
+
+      <div className="py-20 max-w-4xl mx-auto px-6 space-y-16">
+        {/* Engagements */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-4 pl-4 relative">
+            <div className="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-200" />
+            <h3 className="text-base font-serif text-slate-900 font-medium">Nos engagements</h3>
+          </div>
+          <div className="md:col-span-8 text-sm text-slate-600 font-light leading-relaxed space-y-4">
+            <p>Le respect du Référentiel National Qualité (RNQ) se décline à travers les indicateurs majeurs suivants :</p>
+            <ul className="space-y-2.5 pl-4 border-l border-slate-200">
+              <li>— Analyse systématique des besoins opérationnels des apprenants en amont</li>
+              <li>— Adaptation continue des parcours, durées et contenus de cours</li>
+              <li>— Rigueur pédagogique, expertise technique et accompagnement continu des formateurs</li>
+              <li>— Suivi de l'engagement des stagiaires et évaluation formalisée de fin d'action</li>
+              <li>— Processus structuré d'amélioration continue intégrant les feedbacks des clients</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Indicateurs */}
+        <div className="pt-8 space-y-8">
+          <div className="pl-4 relative">
+            <div className="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-200" />
+            <h3 className="text-base font-serif text-slate-900 font-medium">Indicateurs qualité</h3>
+            <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-medium mt-1">
+              Mis à jour annuellement
+            </p>
+          </div>
+          <div className="space-y-6 pl-4">
             {indicateurs.map((ind) => (
-              <div key={ind.label}>
-                <p className="text-[0.72rem] text-bleu/18 tracking-[0.07em]">{ind.label}</p>
-                <p className="text-bleu/40 text-[0.95rem] leading-[1.85] mt-2">{ind.value}</p>
+              <div key={ind.label} className="py-3 border-b border-slate-200 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
+                <span className="text-sm text-slate-600 font-light">{ind.label}</span>
+                <span className="text-xs text-slate-400 italic">{ind.value}</span>
               </div>
             ))}
           </div>
         </div>
-      </Section>
 
-      {/* RÉCLAMATION */}
-      <Section bg="gris">
-        <div className="max-w-[44ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Procédure de réclamation.
-          </h2>
-          <div className="mt-20 md:mt-28 space-y-6 text-bleu/35 text-[0.95rem] leading-[1.85]">
-            <p>
-              Toute réclamation peut être adressée par courrier ou par email
-              à l'adresse suivante&thinsp;:
-            </p>
-            <p>
-              <a
-                href="mailto:contact@mhformation-institut.org"
-                className="text-bleu/30 hover:text-bleu/45 transition-colors duration-700"
-              >
-                contact@mhformation-institut.org
-              </a>
-            </p>
-            <p>
-              Chaque réclamation fait l'objet d'un accusé de réception sous 48 heures
-              et d'un traitement dans un délai de 15 jours ouvrés.
-            </p>
-            <p>
-              Les réclamations sont enregistrées, analysées et contribuent
-              à l'amélioration continue de nos prestations.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* DOCUMENTS */}
-      <Section id="documents">
-        <div className="md:ml-[4%] max-w-[44ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Documents utiles.
-          </h2>
-          <div className="mt-20 md:mt-28">
+        {/* Documents */}
+        <div id="documents" className="pt-8 space-y-6">
+          <h3 className="text-base font-serif text-slate-900 font-light">Téléchargements réglementaires</h3>
+          <div className="space-y-2.5 text-xs font-light max-w-2xl">
             {documents.map((doc) => (
-              <div key={doc.label} className="flex items-center justify-between py-6 border-b border-bleu/[0.015]">
-                <span className="text-bleu/38 text-[0.95rem]">{doc.label}</span>
-                <a
-                  href={doc.href}
-                  className="text-[0.72rem] text-bleu/15 hover:text-bleu/35 transition-colors duration-700 tracking-[0.05em]"
-                >
+              <div key={doc.label} className="py-3 border-b border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600 font-mono">{doc.label}</span>
+                <a href={doc.href} className="text-[10px] uppercase tracking-wider text-slate-500 font-medium">
                   Télécharger →
                 </a>
               </div>
             ))}
           </div>
         </div>
-      </Section>
 
-      {/* DÉLAIS D'ACCÈS */}
-      <Section bg="gris">
-        <div className="max-w-[44ch]">
-          <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-            Délais d'accès.
-          </h2>
-          <div className="mt-20 md:mt-28 space-y-6 text-bleu/35 text-[0.95rem] leading-[1.85]">
+        {/* Réclamation */}
+        <div className="pt-8 space-y-4">
+          <h3 className="text-lg font-serif text-slate-900 font-medium">Gestion des réclamations</h3>
+          <p className="text-sm text-slate-600 font-light leading-relaxed">
+            Conformément aux exigences de la démarche qualité, nous disposons d'une procédure de traitement des réclamations. Tout bénéficiaire, client ou tiers peut faire part d'un dysfonctionnement ou d'une insatisfaction.
+          </p>
+          <p className="text-sm text-slate-600 font-light leading-relaxed">
+            Pour soumettre une réclamation, veuillez adresser un courriel contenant le détail de la situation à l'adresse :{" "}
+            <strong className="text-slate-900 font-normal">contact@mhformation-institut.org</strong>. Notre équipe s'engage à accuser réception sous 48h ouvrées et à formuler une réponse circonstanciée dans un délai de 15 jours.
+          </p>
+        </div>
+
+        {/* Délais d'accès */}
+        <div className="pt-8 space-y-4">
+          <h3 className="text-lg font-serif text-slate-900 font-medium">Délais d'accès</h3>
+          <div className="text-sm text-slate-600 font-light leading-relaxed space-y-4">
             <p>
-              Les délais d'accès varient selon la nature de la formation,
-              les modalités de financement et la disponibilité des intervenants.
+              Les délais d'accès varient selon la nature de la formation, les modalités de financement et la disponibilité des intervenants.
             </p>
             <p>
-              En règle générale, un délai de 14 jours ouvrés minimum
-              est nécessaire entre la demande et le début de la prestation.
+              En règle générale, un délai de 14 jours ouvrés minimum est nécessaire entre la demande et le début de la prestation.
             </p>
             <p>
-              Les conditions précises sont communiquées lors de la phase
-              d'analyse des besoins.
+              Les conditions précises sont communiquées lors de la phase d'analyse des besoins.
             </p>
           </div>
-          <div className="mt-16">
+          <div className="pt-4">
             <Link to="/contact">
-              <span className="text-[0.72rem] text-bleu/18 hover:text-bleu/35 transition-colors duration-700 tracking-[0.05em] cursor-pointer">
-                Nous contacter pour en savoir plus →
+              <span className="text-[10px] uppercase tracking-[0.2em] text-slate-900 font-semibold border-b border-slate-900/15 pb-0.5 cursor-pointer">
+                Nous contacter pour en savoir plus
               </span>
             </Link>
           </div>
         </div>
-      </Section>
+      </div>
     </main>
   );
 }

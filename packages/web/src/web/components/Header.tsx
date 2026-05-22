@@ -7,19 +7,12 @@ const navLinks = [
   { href: "/formations", label: "Formations" },
   { href: "/financement", label: "Financement" },
   { href: "/qualite", label: "Qualité" },
-  { href: "/contact", label: "Contact" },
+  { href: "/accessibilite", label: "Handicap" },
 ];
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [location] = useLocation();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -27,63 +20,75 @@ export default function Header() {
   }, [location]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
-        scrolled ? "bg-cream/95 backdrop-blur-sm py-3" : "bg-transparent py-5"
-      }`}
-    >
-      <div className="max-w-[1180px] mx-auto px-6 md:px-[90px] flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-[#FCFCFC]/95 backdrop-blur-sm border-b border-slate-200">
+      <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+        {/* Logo */}
         <Link to="/">
-          <span className="font-serif text-bleu text-[0.95rem] tracking-[0.02em] cursor-pointer font-light">
+          <span className="text-sm font-serif tracking-[0.2em] text-slate-900 uppercase font-semibold cursor-pointer">
             MH Formation
           </span>
         </Link>
 
-        {/* Desktop */}
-        <nav className="hidden lg:flex items-center gap-7">
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center space-x-8 text-[10px] uppercase tracking-[0.2em] font-medium text-slate-500">
           {navLinks.slice(1).map((link) => (
             <Link key={link.href} to={link.href}>
               <span
-                className={`text-[0.72rem] tracking-[0.07em] transition-colors duration-700 cursor-pointer ${
-                  location === link.href
-                    ? "text-bleu/45"
-                    : "text-bleu/22 hover:text-bleu/40"
+                className={`py-1 cursor-pointer transition-colors duration-300 ${
+                  location === link.href ? "text-slate-900" : "hover:text-slate-700"
                 }`}
               >
                 {link.label}
               </span>
             </Link>
           ))}
+        </nav>
+
+        {/* Desktop CTA */}
+        <div className="hidden lg:block">
           <Link to="/contact">
-            <span className="text-[0.72rem] tracking-[0.07em] text-bleu/22 hover:text-bleu/40 transition-colors duration-700 cursor-pointer">
-              Parler de votre projet →
+            <span className="text-[10px] font-semibold tracking-[0.15em] uppercase border-b border-slate-900/20 text-slate-900 hover:border-slate-900 transition-colors duration-300 cursor-pointer pb-0.5">
+              Parler de votre projet
             </span>
           </Link>
-        </nav>
+        </div>
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2"
+          className="lg:hidden p-1 text-slate-900 focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
+          aria-label="Menu principal"
         >
-          <span className={`block w-4 h-px bg-bleu/30 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3px]" : ""}`} />
-          <span className={`block w-4 h-px bg-bleu/30 mt-[5px] transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-4 h-px bg-bleu/30 mt-[5px] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[8px]" : ""}`} />
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {menuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M4 8h16M4 16h16" />
+            )}
+          </svg>
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-cream/98 backdrop-blur-sm">
-          <nav className="max-w-[1180px] mx-auto px-6 py-16 flex flex-col gap-8">
+        <div className="lg:hidden bg-white border-b border-slate-200">
+          <nav className="flex flex-col space-y-5 p-8 text-[10px] uppercase tracking-[0.2em] font-medium">
             {navLinks.map((link) => (
               <Link key={link.href} to={link.href}>
-                <span className={`font-serif text-[1.1rem] font-light cursor-pointer ${location === link.href ? "text-bleu/45" : "text-bleu/22"}`}>
+                <span
+                  className={`cursor-pointer ${
+                    location === link.href ? "text-slate-900" : "text-slate-500"
+                  }`}
+                >
                   {link.label}
                 </span>
               </Link>
             ))}
+            <Link to="/contact">
+              <span className="text-slate-900 font-semibold pt-4 border-t border-slate-100 block cursor-pointer">
+                Parler de votre projet
+              </span>
+            </Link>
           </nav>
         </div>
       )}

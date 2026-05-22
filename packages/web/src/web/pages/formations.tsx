@@ -1,86 +1,95 @@
 import { Link } from "wouter";
-import Section from "../components/Section";
-import { useReveal } from "../hooks/useReveal";
 
 const formations = [
   {
-    title: "Management de proximité",
-    text: "Développer une communication claire, une posture managériale stable et des méthodes directement applicables au quotidien.",
+    num: "01",
+    tag: "PARCOURS PRINCIPAL",
+    title: "Encadrement et management de proximité",
+    text: "Ce programme aborde la gestion d'équipe en atelier et en service. Il dote l'encadrant d'outils d'organisation quotidienne pour coordonner les actions de production et maintenir la cohésion d'équipe.",
+    span: "lg:col-span-12",
+    titleSize: "text-2xl md:text-3xl",
   },
   {
-    title: "Communication professionnelle",
-    text: "Renforcer les échanges professionnels, la posture relationnelle et la qualité de communication interne.",
+    num: "02",
+    tag: "RELATIONNEL",
+    title: "Relations et communication en équipe",
+    text: "Mieux gérer la transmission des consignes techniques de poste à poste, clarifier les échanges et apaiser les situations difficiles en service.",
+    span: "lg:col-span-7",
+    titleSize: "text-xl",
   },
   {
-    title: "Relation client",
-    text: "Améliorer l'accueil, la gestion des situations sensibles et la qualité relationnelle.",
+    num: "03",
+    tag: "PUBLIC",
+    title: "Accueil physique, téléphonique et gestion des réclamations",
+    text: "Les situations d'accueil tendues dégradent rapidement l'image d'une structure lorsqu'elles ne sont pas traitées avec méthode. Ce programme structure les réflexes de l'intervenant face à l'insatisfaction.",
+    span: "lg:col-span-5",
+    titleSize: "text-xl",
+    extraClass: "lg:mt-6",
   },
   {
-    title: "Organisation du travail",
-    text: "Développer des méthodes concrètes pour améliorer l'efficacité opérationnelle et la gestion des priorités.",
+    num: "04",
+    tag: "MÉTHODES",
+    title: "Gestion du temps, des priorités et de l'organisation personnelle",
+    text: "Méthodologie de planification, hiérarchisation de la charge de travail et mise en œuvre d'outils pour stabiliser son organisation quotidienne.",
+    span: "lg:col-span-5",
+    titleSize: "text-xl",
   },
   {
-    title: "Accompagnement collectif",
-    text: "Favoriser la cohésion, les dynamiques d'équipe et les pratiques collaboratives.",
+    num: "05",
+    tag: "COLLECTIF",
+    title: "Coordination d'équipe et travail collaboratif",
+    text: "Mettre en place des dynamiques de fonctionnement et des critères d'arbitrage communs afin de simplifier le travail d'équipe.",
+    span: "lg:col-span-7",
+    titleSize: "text-xl",
+    extraClass: "lg:-mt-6",
   },
 ];
-
-function FormationBlock({ f, index }: { f: (typeof formations)[0]; index: number }) {
-  const { ref, visible } = useReveal();
-  const offset = index % 3 === 1 ? "md:ml-[10%]" : index % 3 === 2 ? "md:ml-[5%]" : "";
-  return (
-    <div ref={ref} className={`py-20 md:py-28 reveal ${visible ? "visible" : ""}`}>
-      <div className={`${offset} max-w-[44ch]`}>
-        <h2 className="font-serif text-bleu text-[clamp(1.4rem,2.8vw,2rem)] font-light leading-[1.2]">
-          {f.title}
-        </h2>
-        <p className="text-bleu/35 text-[0.95rem] leading-[1.85] mt-7">
-          {f.text}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 export default function Formations() {
   return (
     <main>
-      {/* HERO */}
-      <section className="pt-48 pb-20 md:pt-60 md:pb-28">
-        <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
-          <div className="max-w-[44ch]">
-            <h1 className="font-serif text-bleu text-[clamp(2.6rem,6.5vw,5rem)] font-light leading-[1.08] tracking-[-0.025em] animate-fade-up">
-              Des formations conçues<br />pour le terrain.
-            </h1>
-            <p className="mt-16 text-bleu/35 text-[0.95rem] leading-[1.85] animate-fade-up animate-delay-1">
-              Des contenus opérationnels adaptés aux réalités professionnelles des secteurs industriel et tertiaire.
-            </p>
-          </div>
+      {/* Header */}
+      <div className="py-20 bg-slate-50">
+        <div className="max-w-3xl mx-auto px-6 text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl font-serif font-light text-slate-900 tracking-tight">
+            Catalogue des formations.
+          </h1>
+          <p className="text-sm md:text-base text-slate-600 font-light leading-relaxed">
+            Des contenus opérationnels adaptés aux réalités professionnelles des secteurs industriel et tertiaire.
+          </p>
         </div>
-      </section>
-
-      {/* FORMATIONS */}
-      <div className="max-w-[1180px] mx-auto px-6 md:px-[90px]">
-        {formations.map((f, i) => (
-          <FormationBlock key={f.title} f={f} index={i} />
-        ))}
       </div>
 
-      {/* CONFORMITÉ QUALIOPI */}
-      <Section bg="gris">
-        <div className="max-w-[44ch]">
-          <p className="text-bleu/30 text-[0.95rem] leading-[1.85]">
-            Programmes détaillés, prérequis, objectifs pédagogiques, modalités d'évaluation et délais d'accès communiqués avant toute inscription.
-          </p>
-          <div className="mt-14">
-            <Link to="/contact">
-              <span className="text-[0.72rem] text-bleu/18 hover:text-bleu/35 transition-colors duration-700 tracking-[0.05em] cursor-pointer">
-                Demander un programme →
-              </span>
-            </Link>
-          </div>
+      {/* Catalogue */}
+      <div className="py-24 max-w-5xl mx-auto px-6 space-y-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-20">
+          {formations.map((f) => (
+            <div key={f.num} className={`${f.span} space-y-4 pl-4 relative ${f.extraClass || ""}`}>
+              <div className="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-200" />
+              <span className="text-[10px] font-mono text-slate-300">{f.num} / {f.tag}</span>
+              <h3 className={`${f.titleSize} font-serif font-light text-slate-900`}>
+                {f.title}
+              </h3>
+              <p className="text-sm text-slate-600 font-light leading-relaxed max-w-2xl">
+                {f.text}
+              </p>
+            </div>
+          ))}
         </div>
-      </Section>
+
+        {/* Conformité */}
+        <div className="p-8 bg-slate-50 text-xs text-slate-500 font-light leading-relaxed mt-12">
+          <strong>Informations de conformité :</strong> Les programmes détaillés, les prérequis exigés, les objectifs pédagogiques visés, les modalités d'évaluation des acquis ainsi que les délais moyens d'accès aux sessions sont obligatoirement communiqués avant toute inscription définitive.
+        </div>
+
+        <div className="text-center">
+          <Link to="/contact">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-slate-900 font-semibold border-b border-slate-900/15 pb-0.5 cursor-pointer">
+              Demander un programme détaillé
+            </span>
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }

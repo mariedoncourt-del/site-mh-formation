@@ -10,11 +10,13 @@ import Financement from "./pages/financement";
 import Qualite from "./pages/qualite";
 import Accessibilite from "./pages/accessibilite";
 import Contact from "./pages/contact";
+import MentionsLegales from "./pages/mentions-legales";
+import Confidentialite from "./pages/confidentialite";
 
 function App() {
   return (
     <Provider>
-      <div className="min-h-screen bg-cream">
+      <div className="min-h-screen bg-[#FCFCFC]">
         <Header />
         <Switch>
           <Route path="/" component={Accueil} />
@@ -24,10 +26,14 @@ function App() {
           <Route path="/qualite" component={Qualite} />
           <Route path="/accessibilite" component={Accessibilite} />
           <Route path="/contact" component={Contact} />
+          <Route path="/mentions-legales" component={MentionsLegales} />
+          <Route path="/confidentialite" component={Confidentialite} />
           {/* 404 */}
           <Route>
-            <div className="pt-52 pb-40 max-w-[1180px] mx-auto px-6 md:px-[90px]">
-              <h1 className="font-serif text-bleu text-5xl font-light">Page introuvable.</h1>
+            <div className="py-20 bg-slate-50">
+              <div className="max-w-3xl mx-auto px-6 text-center">
+                <h1 className="text-4xl md:text-5xl font-serif font-light text-slate-900 tracking-tight">Page introuvable.</h1>
+              </div>
             </div>
           </Route>
         </Switch>
