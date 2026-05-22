@@ -62,50 +62,53 @@ export default function Contact() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                  <label htmlFor="nom" className="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold mb-2">
+                    Nom complet
+                  </label>
+                  <input
+                    id="nom"
+                    name="nom"
+                    type="text"
+                    required
+                    className="w-full bg-transparent border-b border-slate-200 focus:border-slate-900 text-sm font-light text-slate-900 py-2 outline-none transition-colors duration-300"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold mb-2">
+                    E-mail
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    className="w-full bg-transparent border-b border-slate-200 focus:border-slate-900 text-sm font-light text-slate-900 py-2 outline-none transition-colors duration-300"
+                  />
+                </div>
+              </div>
               <div>
-                <label htmlFor="nom" className="block text-[10px] uppercase tracking-[0.18em] text-slate-400 font-medium mb-2">
-                  Nom *
+                <label htmlFor="telephone" className="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold mb-2">
+                  Téléphone de contact
                 </label>
                 <input
-                  id="nom"
-                  name="nom"
-                  type="text"
+                  id="telephone"
+                  name="telephone"
+                  type="tel"
                   required
-                  className="w-full bg-transparent border-b border-slate-200 focus:border-slate-900 text-sm text-slate-900 py-3 outline-none transition-colors duration-300"
+                  className="w-full bg-transparent border-b border-slate-200 focus:border-slate-900 text-sm font-light text-slate-900 py-2 outline-none transition-colors duration-300"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-[10px] uppercase tracking-[0.18em] text-slate-400 font-medium mb-2">
-                  Email *
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  className="w-full bg-transparent border-b border-slate-200 focus:border-slate-900 text-sm text-slate-900 py-3 outline-none transition-colors duration-300"
-                />
-              </div>
-              <div>
-                <label htmlFor="entreprise" className="block text-[10px] uppercase tracking-[0.18em] text-slate-400 font-medium mb-2">
-                  Entreprise
-                </label>
-                <input
-                  id="entreprise"
-                  name="entreprise"
-                  type="text"
-                  className="w-full bg-transparent border-b border-slate-200 focus:border-slate-900 text-sm text-slate-900 py-3 outline-none transition-colors duration-300"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-[10px] uppercase tracking-[0.18em] text-slate-400 font-medium mb-2">
-                  Votre besoin
+                <label htmlFor="message" className="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold mb-2">
+                  Description de votre besoin
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
-                  className="w-full bg-transparent border-b border-slate-200 focus:border-slate-900 text-sm text-slate-900 py-3 outline-none transition-colors duration-300 resize-none"
+                  className="w-full bg-transparent border-b border-slate-200 focus:border-slate-900 text-sm font-light text-slate-900 py-2 outline-none transition-colors duration-300 resize-none"
                 />
               </div>
               <div className="pt-4">

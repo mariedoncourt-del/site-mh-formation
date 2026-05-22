@@ -94,6 +94,51 @@ export default function Accueil() {
         </div>
       </Section>
 
+      {/* ─── SECTEURS + RETOURS D'EXPÉRIENCE ─── */}
+      <div className="py-24 md:py-32 bg-slate-50/50 border-t border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            {/* Typologies clients */}
+            <div className="lg:col-span-5 space-y-6">
+              <span className="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">
+                Secteurs d'intervention
+              </span>
+              <ul className="space-y-3 text-sm text-slate-600 font-light leading-relaxed">
+                <li>— Industrie mécanique &amp; plasturgie</li>
+                <li>— Services publics &amp; collectivités territoriales</li>
+                <li>— Structures médico-sociales &amp; cliniques</li>
+                <li>— TPE artisanales &amp; entreprises de services</li>
+              </ul>
+            </div>
+            {/* Témoignages */}
+            <div className="lg:col-span-6 lg:col-start-7 space-y-10 pl-8 relative">
+              <div className="absolute left-0 top-1 bottom-1 w-[1px] bg-slate-200" />
+              <span className="block text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">
+                Retours d'expérience
+              </span>
+              <div className="space-y-8">
+                <blockquote className="space-y-2">
+                  <p className="text-base text-slate-900 font-serif italic">
+                    « Les responsables d'équipe ont repris les outils pendant les changements d'équipe. »
+                  </p>
+                  <cite className="block text-[11px] text-slate-400 not-italic font-sans">
+                    — Responsable de pôle logistique
+                  </cite>
+                </blockquote>
+                <blockquote className="space-y-2">
+                  <p className="text-base text-slate-900 font-serif italic">
+                    « Moins de tensions pendant les transmissions de consignes en fin de poste. »
+                  </p>
+                  <cite className="block text-[11px] text-slate-400 not-italic font-sans">
+                    — Superviseur de production
+                  </cite>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* ─── PROGRAMMES DE FORMATION ─── */}
       <Section>
         <div className="space-y-16">
